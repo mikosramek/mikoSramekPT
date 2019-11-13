@@ -77,15 +77,7 @@ conversationOne = {
         },
         {
           text: "(leave)",
-          callback: function () { horrorGame.changeFrame(0); }
-        },
-        {
-          text: "(leave)",
-          callback: function () { horrorGame.changeFrame(0); }
-        },
-        {
-          text: "(leave)",
-          callback: function () { horrorGame.changeFrame(0); }
+          callback: function () { horrorGame.changeFrame(0); $('#characterOne button').focus(); }
         }
       ]
     }
