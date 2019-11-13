@@ -5,11 +5,19 @@ const horrorGame = {};
 horrorGame.reset = () => {
   //horrorGame.changeFrame(0);
   horrorGame.advanceDialogue(conversationOne);
+  for(let i = 0; i < horrorGame.frames.length; i++){
+    $(horrorGame.frames[i]).find('.window').addClass('hideFrame');
+    $(horrorGame.frames[i]).find('.closedEye').removeClass('hideFrame');
+  }
+  horrorGame.changeFrame(0);
 }
 
 horrorGame.changeFrame = (n) => {
-  // $(horrorGame.frames[horrorGame.currentFrame]).addClass('hideFrame');
-  $(horrorGame.frames[n]).removeClass('hideFrame');
+  $(horrorGame.frames[horrorGame.currentFrame]).find('.window').addClass('hideFrame');
+  $(horrorGame.frames[horrorGame.currentFrame]).find('.closedEye').removeClass('hideFrame');
+  $(horrorGame.frames[n]).find('.closedEye').addClass('hideFrame');
+  $(horrorGame.frames[n]).find('.window').removeClass('hideFrame');
+  
   $('HTML, body').animate({scrollTop: $(horrorGame.frames[n]).offset().top - 30}, 1000);
   horrorGame.currentFrame = n;
 }
@@ -17,8 +25,11 @@ horrorGame.changeFrame = (n) => {
 
 // Bind events here
 horrorGame.bindEvents = () => {
-  $('#characterOne button').on("click", function(){
+  $('#characterOne button').on('click', function(){
     horrorGame.changeFrame(1);
+  });
+  $('#retryButton').on('click', function () {
+    horrorGame.reset();
   });
 }
 horrorGame.findDomReferences = () => {
@@ -44,9 +55,7 @@ horrorGame.advanceDialogue = (conversationObject) => {
     $(newButton).appendTo(horrorGame.responseList)
       .find('button')
       .html(`<p>${dialogue.responses[i].text}</p>`)
-      .on('click', function(){
-        dialogue.responses[i].callback();
-      });
+      .on('click', dialogue.responses[i].callback);
   }
 }
 
@@ -77,7 +86,7 @@ conversationOne = {
         },
         {
           text: "(leave)",
-          callback: function () { horrorGame.changeFrame(0); $('#characterOne button').focus(); }
+          callback: function () { horrorGame.changeFrame(0); }
         }
       ]
     }

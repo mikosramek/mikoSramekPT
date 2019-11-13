@@ -249,6 +249,12 @@ html {
   left: 0;
 }
 
+/*
+accent: #EF414C
+primary: #F3F7F0
+secondary: #19323C
+tertiary: #3F7FA9
+*/
 /* Type Styles - type.scss */
 * {
   font-family: sans-serif;
@@ -303,7 +309,7 @@ main {
 }
 
 button {
-  background-color: black;
+  background-color: #3F7FA9;
   border: none;
   color: white;
   cursor: pointer;
@@ -326,8 +332,8 @@ button:hover p, button:focus p {
   opacity: 1;
 }
 
-.hideFrame {
-  display: none;
+section .wrapper {
+  position: relative;
 }
 
 .window {
@@ -341,9 +347,40 @@ button:hover p, button:focus p {
   background-color: white;
   position: relative;
   border-bottom: 10px solid black;
+  opacity: 1;
+  -webkit-transition: all 1s;
+  transition: all 1s;
 }
 
-/* Window 1 */
+.closedEye {
+  position: absolute;
+  width: 100%;
+  height: 90vh;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  border: 1px solid red;
+}
+
+.closedEye img {
+  position: absolute;
+  left: 38%;
+  top: 35%;
+}
+
+.hideFrame {
+  overflow: hidden;
+  opacity: 0;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.hideFrame button {
+  display: none;
+}
+
+/* Frame 1 */
 .backgroundLine {
   grid-column: 1 / -1;
   -ms-grid-row: 3;
@@ -399,7 +436,7 @@ button:hover p, button:focus p {
   grid-row: 2 / span 1;
 }
 
-/* Window 2 */
+/* Frame 2 */
 .portrait {
   -ms-grid-column: 3;
   -ms-grid-column-span: 3;
@@ -462,6 +499,20 @@ button:hover p, button:focus p {
 .buttonFlex button:hover,
 .buttonFlex button:focus {
   top: -25px;
+  height: 100px;
+  width: 100px;
+}
+
+/* Frame 3 */
+.frameThree button {
+  position: absolute;
+  top: 50%;
+  left: 45%;
+}
+
+.frameThree button:hover, .frameThree button:focus {
+  left: 42.5%;
+  top: 46%;
   height: 100px;
   width: 100px;
 }

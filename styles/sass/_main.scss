@@ -4,7 +4,7 @@ main {
 
 
 button {
-  background-color: black;
+  background-color: $primaryAccent;
   border: none;
   color: white;
   cursor: pointer;
@@ -25,9 +25,11 @@ button {
     }
   }
 }
-.hideFrame {
-  display: none;
+
+section .wrapper{
+  position: relative;
 }
+
 .window {
   display: grid;
   grid-template-columns: repeat(5, 20%);
@@ -36,10 +38,33 @@ button {
   background-color: white;
   position: relative;
   border-bottom: 10px solid black;
+  opacity: 1;
+  transition: all 1s;
+}
+.closedEye {
+  position: absolute;
+  width: 100%;
+  height: 90vh;
+  top: 0;right: 0;left: 0;bottom: 0;
+  border: 1px solid red;
+  img {
+    position: absolute;
+    left: 38%;
+    top: 35%;
+  }
+}
+.hideFrame {
+  // display: none;
+  // height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 1s;
+  button {
+    display: none;
+  }
 }
 
-
-/* Window 1 */
+/* Frame 1 */
 
 .backgroundLine {
   grid-column: 1 / -1;
@@ -79,7 +104,7 @@ button {
   grid-column: 3 / span 2;
   grid-row: 2 / span 1;
 }
-/* Window 2 */
+/* Frame 2 */
 .portrait {
   grid-column: 3 / span 3;
   grid-row: 1 / span 4;
@@ -124,5 +149,19 @@ button {
     top: -25px;
     height:100px;
     width:100px;
+  }
+}
+
+/* Frame 3 */
+.frameThree button {
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  &:hover,
+  &:focus {
+    left: 42.5%;
+    top: 46%;
+    height: 100px;
+    width: 100px;
   }
 }

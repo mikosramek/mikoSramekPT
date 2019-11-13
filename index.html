@@ -17,6 +17,9 @@
   <main id="frameHolder">
     <section class="frameOne" id="frameOne">
       <div class="wrapper">
+        <div class="closedEye">
+          <img src="./assets/eye/eye3.png" alt="">
+        </div> <!-- End of Eye Div -->
         <div class="window">
           <div class="backgroundLine">
             <img src="./assets/wallLine.png" alt="">
@@ -25,16 +28,17 @@
         </div> <!-- End of Window Div -->
       </div> <!-- End of Wrapper -->
     </section> <!-- End of Frame One Section -->
-    <section class="frameTwo hideFrame" id="frameTwo">
+    <section class="frameTwo" id="frameTwo">
       <div class="wrapper">
-        <div class="window">
+        <div class="closedEye">
+          <img src="./assets/eye/eye3.png" alt="">
+        </div> <!-- End of Eye Div -->
+        <div class="window hideFrame">
           <div class="conversationBox">
             <h2 class="name" id="npcName"></h2>
             <p class="text" id="npcText"></p>
             <ul class="buttonFlex" id="responseList">
-              <!-- <button id="responseOne">Hello</button>
-              <button id="responseTwo">Goodbye</button>
-              <button id="responseThree">(Leave)</button> -->
+              <!-- Response Buttons are generated to be here! -->
             </ul> <!-- End of Response Button Flex Container -->
           </div> <!-- End of Conversation Box Div -->
           <div class="portrait">
@@ -43,10 +47,16 @@
         </div> <!-- End of Window Div -->
       </div> <!-- End of Wrapper -->
     </section> <!-- End of Frame Two Section -->
-    <section class="frameThree hideFrame" id="frameThree">
+    <section class="frameThree" id="frameThree">
       <div class="wrapper">
-        <div class="window">
+        <div class="closedEye">
+          <img src="./assets/eye/eye3.png" alt="">
+        </div> <!-- End of Eye Div -->
+        <div class="window hideFrame">
           <h3>You died.</h3>
+          <button id="retryButton"><p>
+            (retry)
+          </p></button>
         </div> <!-- End of Window Div -->
       </div> <!-- End of Wrapper -->
     </section> <!-- End of Frame Three Section -->
