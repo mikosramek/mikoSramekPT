@@ -4,7 +4,7 @@ main {
 
 .window {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 20%);
   grid-template-rows: repeat(5, 18vh);
   border: 1px solid red;
   overflow: hidden;
@@ -28,14 +28,11 @@ main {
     right: 20px;
     // width: 100%;
     // height: 100%;
-    a {
-      display: block;
-      width:55%;
-      height: 100%;
-      border: 1px solid red;
-    }
     img {
       height: 100%;
+    }
+    button {
+      
     }
 }
 .frameOne p {

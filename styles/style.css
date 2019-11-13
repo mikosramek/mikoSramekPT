@@ -301,8 +301,8 @@ main {
 .window {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[5];
-      grid-template-columns: repeat(5, 1fr);
+  -ms-grid-columns: (20%)[5];
+      grid-template-columns: repeat(5, 20%);
   -ms-grid-rows: (18vh)[5];
       grid-template-rows: repeat(5, 18vh);
   border: 1px solid red;
@@ -330,13 +330,6 @@ main {
   grid-row: 2 / span 3;
   position: relative;
   right: 20px;
-}
-
-.characterOne a {
-  display: block;
-  width: 55%;
-  height: 100%;
-  border: 1px solid red;
 }
 
 .characterOne img {

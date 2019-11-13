@@ -12,21 +12,21 @@
   <header>
     <div class="wrapper">
       <h1>title</h1>
-    </div>
+    </div> <!-- End of Wrapper -->
   </header>
   <main>
-    <section class="frameOne">
+    <section class="frameOne" id="frameOne">
       <div class="wrapper">
         <div class="window">
           <div class="backgroundLine">
             <img src="./assets/wallLine.png" alt="">
           </div> <!-- End of Background Line Div -->
-          <div href="#" class="characterOne"><a href="#"><img src="./assets/priest.png" alt="" ></a></div>
+          <div href="#" class="characterOne" id="characterOne"><img src="./assets/priest.png" alt=""><button class="visuallyHidden">Talk to priest</button></div>
           <p>Escape the room! This man lies and cannot be trusted.</p>
-        </div>
-      </div>
-    </section>
-    <section class="frameTwo">
+        </div> <!-- End of Window Div -->
+      </div> <!-- End of Wrapper -->
+    </section> <!-- End of Frame One Section -->
+    <section class="frameTwo" id="frameTwo">
       <div class="wrapper">
         <div class="window">
           <div class="conversationBox">
@@ -36,26 +36,34 @@
               <button id="responseOne">Hello</button>
               <button id="responseTwo">Goodbye</button>
               <button id="responseThree">(Leave)</button>
-            </div>
+            </div> <!-- End of Response Button Flex Container -->
           </div> <!-- End of Conversation Box Div -->
           <div class="portrait">
             <img src="./assets/priestPortrait.png" alt="">
           </div> <!-- End of Portrait Div -->
         </div> <!-- End of Window Div -->
-      </div> <!-- End of Wrapper Div -->
-    </section>
-    <section class="frameThree">
+      </div> <!-- End of Wrapper -->
+    </section> <!-- End of Frame Two Section -->
+    <section class="frameThree" id="frameThree">
       <div class="wrapper">
         <div class="window">
 
-        </div>
-      </div>
-    </section>
+        </div> <!-- End of Window Div -->
+      </div> <!-- End of Wrapper -->
+    </section> <!-- End of Frame Three Section -->
   </main>
   <footer>
     <div class="wrapper">
       <p>Miko Sramek © 2019</p>
-    </div>
+    </div> <!-- End of Wrapper -->
   </footer>
+
+  <!-- jQuery -->
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  <!-- Load any other plugins here: -->
+
+  <!-- Main Script -->
+  <script src='./scripts/script.js'>
+  </script>
 </body>
 </html>
