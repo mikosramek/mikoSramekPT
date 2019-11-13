@@ -1,6 +1,27 @@
 main {
   background-color: black;
 }
+
+button {
+  background-color: black;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 1s;
+  &:hover,
+  &:focus {
+    p {
+      opacity: 1;
+    }
+  }
+  p {
+    font-size: 20px;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  
+}
 .hideFrame {
   display: none;
 }
@@ -39,20 +60,7 @@ main {
       left: 50px;
       height: 50px;
       width: 50px;
-      padding: 0;
-      cursor: pointer;
-      overflow: hidden;
-      border-radius: 50%;
-      transition: all 1s;
-
-      border: none;
-      color: white;
-      background-color: black;
-      p {
-        font-size: 12px;
-        opacity: 0;
-        transition: opacity 0.5s;
-      }
+      padding: 0;  
     }
     button:hover,
     button:focus {
@@ -60,9 +68,6 @@ main {
       left: 25px;
       height:100px;
       width:100px;
-      p {
-        opacity: 1;
-      }
     }
 }
 .frameOne p {
@@ -70,7 +75,6 @@ main {
   padding: 0;
   grid-column: 3 / span 2;
   grid-row: 2 / span 1;
-  font-size: 25px;
 }
 /* Window 2 */
 .portrait {
@@ -81,12 +85,49 @@ main {
   right: -25px;
 }
 .conversationBox {
-  background-color: grey;
+  background-color: white;
+  color: black;
+  border-radius: 25px;
+  border: 10px solid black;
+
   grid-column: 1 / span 3;
   grid-row: 4 / span 2;
-  border-radius: 25px;
+  
+  padding: 15px;
+  
+  margin: 10px;
+  h2 {
+    font-size: 20px;
+    margin: 0;
+  }
+  >p {
+    font-size: 17px;
+    margin: 0;
+    padding-bottom: 10px;
+  }
 }
 .buttonFlex {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 35px;
+  button {
+    z-index: 2;
+    padding: 5px 0;
+    
+   
+    font-size: 17px;
+
+    position: relative;
+    height: 50px;
+    width: 50px;
+    top: 0;
+
+  }
+  button:hover,
+  button:focus {
+    top: -25px;
+    height:100px;
+    width:100px;
+  }
 }

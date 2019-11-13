@@ -43,7 +43,7 @@ horrorGame.advanceDialogue = (conversationObject) => {
     const newButton = $(`<li><button></button></li>`);
     $(newButton).appendTo(horrorGame.responseList)
       .find('button')
-      .text(dialogue.responses[i].text)
+      .html(`<p>${dialogue.responses[i].text}</p>`)
       .on('click', function(){
         dialogue.responses[i].callback();
       });
@@ -68,11 +68,11 @@ conversationOne = {
       text: "The door on the left leads to safety. Which door will you choose?",
       responses: [
         {
-          text: "The left door.",
+          text: "Right.",
           callback: function () { horrorGame.changeFrame(2); }
         },
         {
-          text: "The right door.",
+          text: "Left.",
           callback: function () { horrorGame.changeFrame(2); }
         },
         {
