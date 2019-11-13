@@ -266,6 +266,10 @@ a:visited {
   color: inherit;
 }
 
+html {
+  background-color: black;
+}
+
 img {
   display: block;
 }
@@ -290,7 +294,7 @@ header {
 
 h1 {
   margin: 0;
-  padding: 10px 10px;
+  padding: 4px 10px;
 }
 
 /* Main Styles - header.scss */
@@ -330,12 +334,10 @@ button p {
       grid-template-columns: repeat(5, 20%);
   -ms-grid-rows: (18vh)[5];
       grid-template-rows: repeat(5, 18vh);
-  border: 1px solid red;
   overflow: hidden;
-  border: 10px solid black;
-  border-top: none;
   background-color: white;
   position: relative;
+  border-bottom: 10px solid black;
 }
 
 /* Window 1 */
@@ -468,6 +470,6 @@ footer {
 
 footer p {
   margin: 0;
-  padding: 5px 0;
-  font-size: 15px;
+  padding: 0px 0;
+  font-size: 12px;
 }

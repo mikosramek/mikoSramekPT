@@ -2,6 +2,7 @@ main {
   background-color: black;
 }
 
+
 button {
   background-color: black;
   border: none;
@@ -29,12 +30,11 @@ button {
   display: grid;
   grid-template-columns: repeat(5, 20%);
   grid-template-rows: repeat(5, 18vh);
-  border: 1px solid red;
+  // border: 1px solid red;
   overflow: hidden;
-  border: 10px solid black;
-  border-top: none;
   background-color: white;
   position: relative;
+  border-bottom: 10px solid black;
 }
 
 

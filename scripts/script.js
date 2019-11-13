@@ -78,6 +78,14 @@ conversationOne = {
         {
           text: "(leave)",
           callback: function () { horrorGame.changeFrame(0); }
+        },
+        {
+          text: "(leave)",
+          callback: function () { horrorGame.changeFrame(0); }
+        },
+        {
+          text: "(leave)",
+          callback: function () { horrorGame.changeFrame(0); }
         }
       ]
     }
