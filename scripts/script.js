@@ -1,24 +1,27 @@
 const horrorGame = {};
 
-
-
 horrorGame.reset = () => {
-  //horrorGame.changeFrame(0);
   horrorGame.advanceDialogue(conversationOne);
-  for(let i = 0; i < horrorGame.frames.length; i++){
-    $(horrorGame.frames[i]).find('.window').addClass('hideFrame');
-    $(horrorGame.frames[i]).find('.closedEye').removeClass('hideFrame');
-  }
+  $(horrorGame.frames)
+    .find('.window').addClass('hideFrame')
+    .find('.closedEye').removeClass('hideFrame');
   horrorGame.changeFrame(0);
 }
-
+// $element.on('transitionend webkitTransitionEnd oTransitionEnd', function () { // your event handler });
 horrorGame.changeFrame = (n) => {
-  $(horrorGame.frames[horrorGame.currentFrame]).find('.window').addClass('hideFrame');
-  $(horrorGame.frames[horrorGame.currentFrame]).find('.closedEye').removeClass('hideFrame');
-  $(horrorGame.frames[n]).find('.closedEye').addClass('hideFrame');
-  $(horrorGame.frames[n]).find('.window').removeClass('hideFrame');
+  //Hide current frame and show eyeball cover
+  $(horrorGame.frames[horrorGame.currentFrame])
+    .find('.window').addClass('hideFrame')
+    .find('.closedEye').removeClass('hideFrame');
+
+  //Show next frame and hide next eyeball cover
+  $(horrorGame.frames[n])
+    .find('.window').removeClass('hideFrame')
+    .find('.closedEye').addClass('hideFrame');
   
+  //Scroll the html/body to the top of the next frame
   $('HTML, body').animate({scrollTop: $(horrorGame.frames[n]).offset().top - 30}, 1000);
+  //Set the current frame to the next frame
   horrorGame.currentFrame = n;
 }
 
@@ -39,17 +42,34 @@ horrorGame.findDomReferences = () => {
   horrorGame.npcText = $('#npcText');
 
   horrorGame.responseList = $('#responseList');
-  // horrorGame.responseOne = $('#responseOne');
-  // horrorGame.responseTwo = $('#responseTwo');
-  // horrorGame.responseThree = $('#responseThree');
+
+  horrorGame.endingDiv = $('#endingDiv');
+}
+
+horrorGame.showEndScreen = (text, imgUrl) => {
+  horrorGame.endingDiv
+    .find('h3').text(text);
+  horrorGame.endingDiv
+    .find('img').attr("src", imgUrl);
+    console.log(imgUrl);
 }
 
 horrorGame.advanceDialogue = (conversationObject) => {
+  //Set the overall npc settings
+  //Set the text of the name
   horrorGame.npcName.text(conversationObject.name);
-  const dialogue = conversationObject.dialogue[conversationObject.currentIndex]
+  //Set the npc portrait
+
+  //Store the dialogue object in a shorter name
+  const dialogue = conversationObject.dialogue[conversationObject.currentIndex];
+  //Set the current text
   horrorGame.npcText.text(dialogue.text);
 
+  //Make sure the ul doesn't have any buttons in it
   horrorGame.responseList.empty();
+  //Append the ul with buttons
+  //Set the html to have the response text
+  //Bind the click event to the response's callback
   for(let i = 0; i < dialogue.responses.length; i++){
     const newButton = $(`<li><button></button></li>`);
     $(newButton).appendTo(horrorGame.responseList)
@@ -74,15 +94,15 @@ conversationOne = {
   currentIndex: 0,
   dialogue: [
     {
-      text: "The door on the left leads to safety. Which door will you choose?",
+      text: "Dog or Cat?",
       responses: [
         {
-          text: "Right.",
-          callback: function () { horrorGame.changeFrame(2); }
+          text: "Dog.",
+          callback: function () { horrorGame.changeFrame(2); horrorGame.showEndScreen("(you died)", "./assets/deathIcon.svg"); }
         },
         {
-          text: "Left.",
-          callback: function () { horrorGame.changeFrame(2); }
+          text: "Cat.",
+          callback: function () { horrorGame.changeFrame(2); horrorGame.showEndScreen("(you escaped)", "./assets/heartIcon.svg"); }
         },
         {
           text: "(leave)",
