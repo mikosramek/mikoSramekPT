@@ -298,6 +298,10 @@ main {
   background-color: black;
 }
 
+.hideFrame {
+  display: none;
+}
+
 .window {
   display: -ms-grid;
   display: grid;
@@ -336,6 +340,43 @@ main {
   height: 100%;
 }
 
+.characterOne button {
+  position: absolute;
+  top: 100px;
+  left: 50px;
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 50%;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  border: none;
+  color: white;
+  background-color: black;
+}
+
+.characterOne button p {
+  font-size: 12px;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+.characterOne button:hover,
+.characterOne button:focus {
+  top: 75px;
+  left: 25px;
+  height: 100px;
+  width: 100px;
+}
+
+.characterOne button:hover p,
+.characterOne button:focus p {
+  opacity: 1;
+}
+
 .frameOne p {
   margin: 0;
   padding: 0;
@@ -370,6 +411,16 @@ main {
   -ms-grid-row-span: 2;
   grid-row: 4 / span 2;
   border-radius: 25px;
+}
+
+.buttonFlex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 /* Footer Styles - footer.scss */

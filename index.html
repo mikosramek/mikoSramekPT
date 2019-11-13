@@ -14,15 +14,14 @@
       <h1>title</h1>
     </div> <!-- End of Wrapper -->
   </header>
-  <main>
-    <section class="frameOne" id="frameOne">
+  <main id="frameHolder">
+    <section class="frameOne hideFrame" id="frameOne">
       <div class="wrapper">
         <div class="window">
           <div class="backgroundLine">
             <img src="./assets/wallLine.png" alt="">
           </div> <!-- End of Background Line Div -->
-          <div href="#" class="characterOne" id="characterOne"><img src="./assets/priest.png" alt=""><button class="visuallyHidden">Talk to priest</button></div>
-          <p>Escape the room! This man lies and cannot be trusted.</p>
+          <div href="#" class="characterOne" id="characterOne"><img src="./assets/priest.png" alt=""><button><p>Talk</p></button></div>
         </div> <!-- End of Window Div -->
       </div> <!-- End of Wrapper -->
     </section> <!-- End of Frame One Section -->
@@ -30,13 +29,13 @@
       <div class="wrapper">
         <div class="window">
           <div class="conversationBox">
-            <h2 class="name" id="npcName">Name</h2>
-            <p class="text" id="npcText">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic fugiat iste est possimus a deserunt provident dolore eaque commodi. Officiis.</p>
-            <div class="buttonFlex">
-              <button id="responseOne">Hello</button>
+            <h2 class="name" id="npcName"></h2>
+            <p class="text" id="npcText"></p>
+            <ul class="buttonFlex" id="responseList">
+              <!-- <button id="responseOne">Hello</button>
               <button id="responseTwo">Goodbye</button>
-              <button id="responseThree">(Leave)</button>
-            </div> <!-- End of Response Button Flex Container -->
+              <button id="responseThree">(Leave)</button> -->
+            </ul> <!-- End of Response Button Flex Container -->
           </div> <!-- End of Conversation Box Div -->
           <div class="portrait">
             <img src="./assets/priestPortrait.png" alt="">
@@ -44,7 +43,7 @@
         </div> <!-- End of Window Div -->
       </div> <!-- End of Wrapper -->
     </section> <!-- End of Frame Two Section -->
-    <section class="frameThree" id="frameThree">
+    <section class="frameThree hideFrame" id="frameThree">
       <div class="wrapper">
         <div class="window">
 
