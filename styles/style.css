@@ -514,7 +514,7 @@ section .wrapper {
 }
 
 /* Frame 3 */
-.frameThree button:hover, .frameThree button:focus {
+.endFrame button:hover, .endFrame button:focus {
   left: 42.5%;
   top: 46%;
   height: 100px;

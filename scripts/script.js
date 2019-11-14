@@ -1,7 +1,7 @@
 const horrorGame = {};
 
 horrorGame.reset = () => {
-  horrorGame.advanceDialogue(conversationOne);
+  horrorGame.advanceDialogue(borisNpc);
   $(horrorGame.frames)
     .find('.window').addClass('hideFrame')
     .find('.closedEye').removeClass('hideFrame');
@@ -40,6 +40,7 @@ horrorGame.findDomReferences = () => {
 
   horrorGame.npcName = $('#npcName');
   horrorGame.npcText = $('#npcText');
+  horrorGame.npcPortrait = $('#npcPortrait');
 
   horrorGame.responseList = $('#responseList');
 
@@ -50,7 +51,7 @@ horrorGame.showEndScreen = (text, imgUrl) => {
   horrorGame.endingDiv
     .find('h3').text(text);
   horrorGame.endingDiv
-    .find('img').attr("src", imgUrl);
+    .find('img').attr('src', imgUrl);
     console.log(imgUrl);
 }
 
@@ -59,7 +60,7 @@ horrorGame.advanceDialogue = (conversationObject) => {
   //Set the text of the name
   horrorGame.npcName.text(conversationObject.name);
   //Set the npc portrait
-
+  horrorGame.npcPortrait.attr('src', conversationObject.portraitURL);
   //Store the dialogue object in a shorter name
   const dialogue = conversationObject.dialogue[conversationObject.currentIndex];
   //Set the current text
@@ -87,12 +88,32 @@ horrorGame.init = () => {
 }
 
 
+$(document).ready(function(){
+  horrorGame.init();
+});
 
-conversationOne = {
+borisNpc = {
   name: "Boris",
   portraitURL: "./assets/priestPortrait.png",
   currentIndex: 0,
   dialogue: [
+    {
+      text: "Here is some text. This is the best text and will be important to the story.",
+      responses: [
+        {
+          text: "Yes.",
+          callback: function () { horrorGame.changeFrame(2); horrorGame.showEndScreen("(you died)", "./assets/deathIcon.svg"); }
+        },
+        {
+          text: "No.",
+          callback: function () { horrorGame.changeFrame(2); horrorGame.showEndScreen("(you escaped)", "./assets/heartIcon.svg"); }
+        },
+        {
+          text: "(leave)",
+          callback: function () { horrorGame.changeFrame(0); }
+        }
+      ]
+    },
     {
       text: "Dog or Cat?",
       responses: [
@@ -112,8 +133,27 @@ conversationOne = {
     }
   ]
 }
-
-// $(function() {
-$(document).ready(function(){
-  horrorGame.init();
-});
+skullNpc = {
+  name: "Skull",
+  portraitURL: "./assets/skull.png",
+  currentIndex: 0,
+  dialogue: [
+    {
+      text: "hhhhhhh",
+      responses: [
+        {
+          text: "Dog.",
+          callback: function () { horrorGame.changeFrame(2); horrorGame.showEndScreen("(you died)", "./assets/deathIcon.svg"); }
+        },
+        {
+          text: "Cat.",
+          callback: function () { horrorGame.changeFrame(2); horrorGame.showEndScreen("(you escaped)", "./assets/heartIcon.svg"); }
+        },
+        {
+          text: "(leave)",
+          callback: function () { horrorGame.changeFrame(0); }
+        }
+      ]
+    }
+  ]
+}
