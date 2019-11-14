@@ -513,14 +513,7 @@ section .wrapper {
   width: 100px;
 }
 
-/* Frame 3 */
-.endFrame button:hover, .endFrame button:focus {
-  left: 42.5%;
-  top: 46%;
-  height: 100px;
-  width: 100px;
-}
-
+/* End Frame */
 .buttonDiv {
   -ms-grid-row: 4;
   -ms-grid-row-span: 1;
@@ -563,6 +556,15 @@ section .wrapper {
   -ms-grid-column: 3;
   -ms-grid-column-span: 1;
   grid-column: 3 / span 1;
+}
+
+.endFrame button {
+  position: absolute;
+}
+
+.endFrame button:hover, .endFrame button:focus {
+  height: 100px;
+  width: 100px;
 }
 
 /* Footer Styles - footer.scss */
