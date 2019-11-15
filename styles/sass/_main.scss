@@ -13,7 +13,7 @@ button {
   height: 50px;
   width: 50px;
   padding:0;
-  p {
+  span {
     font-size: 20px;
     opacity: 0;
     transition: opacity 0.5s;
@@ -22,7 +22,12 @@ button {
   &:hover,
   &:focus {
     cursor: url('../assets/handActive.svg') 15 15, auto;
-    p {
+    span {
+      opacity: 1;
+    }
+  }
+  @media(hover:none) {
+    span {
       opacity: 1;
     }
   }
@@ -36,6 +41,7 @@ button {
   align-items: center;
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
 section .wrapper{
@@ -111,12 +117,17 @@ section .wrapper{
       background-color: $primaryBlack;
     }
   }
-  button:hover,
-  button:focus {
-    top: 75px;
-    left: 25px;
-    height:100px;
-    width:100px;
+  button {
+    position: absolute;
+    &:hover,
+    &:focus {
+      height:100px;
+      width:100px;
+    }
+    @media(hover:none) {
+      height: 100px;
+      width: 100px;
+    }
   }
   .buttonDiv {
     grid-row: 5 / span 1;
@@ -161,13 +172,20 @@ section .wrapper{
     position: absolute;
     top: 100px; 
     left: 50px;
-  }
-  button:hover,
-  button:focus {
-    top: 75px;
-    left: 25px;
-    height:100px;
-    width:100px;
+  
+    &:hover,
+    &:focus {
+      top: 75px;
+      left: 25px;
+      height:100px;
+      width:100px;
+    }
+    @media(hover:none) {
+      height: 100px;
+      width: 100px;
+      // top: 0px;
+      // left: 0px;
+    }
   }
 }
 
@@ -179,44 +197,113 @@ section .wrapper{
   position: relative;
   top: -250px;
   right: -25px;
+  z-index: 0;
+  @include media($firstBreak){
+    grid-column: 1 / span 3;  
+    grid-row: 1 / span 4;
+    right: -300px;
+    top: -300px;
+  }
+  @include media($secondBreak){
+    grid-column: 1 / span 3;  
+    grid-row: 1 / span 4;
+    right: 0px;
+    top: -300px;
+  }
 }
 .conversationBox {
+  z-index: 2;
   background-color: $primaryColor;
   color: black;
   border-radius: 25px;
   border: 10px solid $primaryBlack;
-
   grid-column: 1 / span 3;
   grid-row: 4 / span 2;
-  
   padding: 15px;
   margin: 10px;
+  position: relative;
+  @include media($firstBreak){
+    grid-column: 1 / span 4;  
+    grid-row: 3 / span 3;
+  }
+  @include media($secondBreak){
+    grid-column: 1 / -1;  
+    grid-row: 3 / span 2;
+    margin-top: 50px;
+    padding-bottom: 40vh;
+  }
   h2 {
-    font-size: 20px;
+    font-size: 2rem;
     margin: 0;
   }
   >p {
-    font-size: 17px;
+    font-size: 1.7rem;
     margin: 0;
     padding-bottom: 10px;
+  } 
+}
+.leaveButton {
+  z-index: 10;
+  position: absolute;
+  top: -10px;
+  left: 15px;
+  button {
+    position: absolute;
+    right: -50px;
+    bottom: 0px;
+    &:hover,
+    &:focus {
+      right: -75px;
+      bottom: -25px;
+      height: 100px;
+      width: 100px;
+    }
+    @media(hover:none) {
+      height: 100px;
+      width: 100px;
+      left: 0px;
+      bottom: 0px;
+    }
   }
 }
+// Response buttons are generated in js
 .buttonFlex {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-evenly;
-  margin-top: 35px;
+  margin-top: 0px;
   button {
     z-index: 2;
-    font-size: 17px;
     position: relative;
     top: 0;
-  }
-  button:hover,
-  button:focus {
-    top: -25px;
-    height:100px;
-    width:100px;
+    width: 100%;
+    height: auto;
+    border-radius: 25px;
+    margin: 5px 0;
+    padding: 10px 0;
+    p {
+      font-size: 1.5rem;
+      color: $primaryWhite;
+      opacity: 0.7;
+      text-align: left;
+      padding: 10px;
+      margin: 0;
+      transition: all 1s;
+    }
+  
+    &:hover,
+    &:focus {
+      p {
+        opacity: 1;
+        font-size: 1.7rem;
+      }
+    }
+    @media(hover:none) {
+      p {
+        opacity: 1;
+        font-size: 1.7rem;
+      }
+    }
   }
 }
 
@@ -239,5 +326,9 @@ section .wrapper{
   &:focus {
     height: 100px;
     width: 100px;
+  }
+  @media(hover:none) {
+    height: 100px;
+    width:100px;
   }
 }

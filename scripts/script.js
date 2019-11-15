@@ -46,6 +46,9 @@ horrorGame.bindEvents = () => {
   $('#retryButton').on('click', function () {
     horrorGame.start();
   });
+  $('#leaveConversationOneButton').on('click', function() {
+    horrorGame.changeFrame(horrorGame.previousFrame);
+  })
 }
 horrorGame.findDomReferences = () => {
   horrorGame.frames = $('#frameHolder').children();
@@ -95,7 +98,7 @@ horrorGame.showDialogue = (conversationObject) => {
 //Bind the click event to the response's callback
 horrorGame.generateResponseButtons = (responses) => {
   for(let i = 0; i < responses.length; i++){
-    const newButton = $(`<li><button></button></li>`);
+    const newButton = $('<li><button></button></li>');
     $(newButton).appendTo(horrorGame.responseList)
       .find('button')
       .html(`<p>${responses[i].text}</p>`)
@@ -120,83 +123,71 @@ $(document).ready(function(){
 
 
 borisNpc = {
-  name: "Boris",
-  portraitURL: "./assets/priestPortrait.png",
+  name: 'Boris',
+  portraitURL: './assets/priestPortrait.png',
   currentIndex: 0,
   reset: function() { borisNpc.currentIndex = 0; },
   dialogue: [
     { // 0
-      text: "Here is some text. This is the best text and will be important to the story.",
+      text: 'Here is some text. This is the best text and will be important to the story.',
       responses: [
         {
-          text: "Yes.",
+          text: 'Yes.',
           callback: function () { borisNpc.currentIndex = 1; horrorGame.showDialogue(borisNpc); }
         },
         {
-          text: "No.",
+          text: 'No.',
           callback: function () { horrorGame.changeFrame(-1); horrorGame.setEndScreen('(you died)', './assets/deathIcon.svg');}
-        },
-        {
-          text: "(leave)",
-          callback: function () { horrorGame.changeFrame(horrorGame.previousFrame); }
         }
       ]
     },
     { // 1
-      text: "I see, that is your answer? Well here is my response. How about that?",
+      text: 'I see, that is your answer? Well here is my response. How about that?',
       responses: [
         {
-          text: "Hm. That seems very reasonable. I'm glad you brought this issue up with me.",
+          text: 'Hm. That seems very reasonable. I\'m glad you brought this issue up with me.',
           callback: function () { borisNpc.currentIndex = 2; horrorGame.showDialogue(borisNpc); }
         },
         {
-          text: "Eh.",
+          text: 'Eh.',
           callback: function () { horrorGame.changeFrame(-1); horrorGame.setEndScreen('(you died)', './assets/deathIcon.svg'); }
-        },
-        {
-          text: "(leave)",
-          callback: function () { horrorGame.changeFrame(horrorGame.previousFrame); }
         }
       ]
     },
     { // 2
-      text: "Sensical. Just talk to that skull over there.",
+      text:'Sensical. Just talk to that skull over there.',
       responses: [
         {
-          text: "Thanks.",
+          text: 'Thanks.',
           callback: function () { horrorGame.changeFrame(2); }
         },
         {
-          text: "Okay.",
+          text: 'Okay.',
           callback: function () { horrorGame.changeFrame(2); }
-        },
-        {
-          text: "(leave)",
-          callback: function () { horrorGame.changeFrame(horrorGame.previousFrame); }
         }
       ]
     }
   ]
 }
 skullNpc = {
-  name: "Skull",
-  portraitURL: "./assets/skull.png",
+  name: 'Skull',
+  portraitURL: './assets/skull.png',
   currentIndex: 0,
   reset: function() { skullNpc.currentIndex = 0; },
   dialogue: [
     {
-      text: "hhhhhhh",
+      text: 'hhhhhhh',
       responses: [
         {
-          text: "Dog.",
-          callback: function () { horrorGame.changeFrame(2); horrorGame.setEndScreen("(you died)", "./assets/deathIcon.svg"); }
+          text: 'Dog.',
+          callback: function () { horrorGame.changeFrame(2); horrorGame.setEndScreen('(you died)', './assets/deathIcon.svg'); }
         },
         {
-          text: "Cat.",
-          callback: function () { horrorGame.changeFrame(2); horrorGame.setEndScreen("(you escaped)", "./assets/heartIcon.svg"); }
+          text: 'Cat.',
+          callback: function () { horrorGame.changeFrame(2); horrorGame.setEndScreen('(you escaped)', './assets/heartIcon.svg'); }
         },
         {
-          text: "(leave)",
+          text: '(leave)',
           callback: function () { horrorGame.changeFrame(0); }
         }
       ]

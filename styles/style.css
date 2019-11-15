@@ -342,7 +342,7 @@ button {
   padding: 0;
 }
 
-button p {
+button span {
   font-size: 20px;
   opacity: 0;
   -webkit-transition: opacity 0.5s;
@@ -354,8 +354,14 @@ button:hover, button:focus {
   cursor: url("../assets/handActive.svg") 15 15, auto;
 }
 
-button:hover p, button:focus p {
+button:hover span, button:focus span {
   opacity: 1;
+}
+
+@media (hover: none) {
+  button span {
+    opacity: 1;
+  }
 }
 
 .buttonDiv {
@@ -376,6 +382,7 @@ button:hover p, button:focus p {
           align-items: center;
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
 section .wrapper {
@@ -490,12 +497,20 @@ section .wrapper {
   background-color: #0E0E0E;
 }
 
-.tutorial button:hover,
-.tutorial button:focus {
-  top: 75px;
-  left: 25px;
+.tutorial button {
+  position: absolute;
+}
+
+.tutorial button:hover, .tutorial button:focus {
   height: 100px;
   width: 100px;
+}
+
+@media (hover: none) {
+  .tutorial button {
+    height: 100px;
+    width: 100px;
+  }
 }
 
 .tutorial .buttonDiv {
@@ -559,12 +574,18 @@ section .wrapper {
   left: 50px;
 }
 
-.characterOne button:hover,
-.characterOne button:focus {
+.characterOne button:hover, .characterOne button:focus {
   top: 75px;
   left: 25px;
   height: 100px;
   width: 100px;
+}
+
+@media (hover: none) {
+  .characterOne button {
+    height: 100px;
+    width: 100px;
+  }
 }
 
 /* Frame 2 */
@@ -578,9 +599,37 @@ section .wrapper {
   position: relative;
   top: -250px;
   right: -25px;
+  z-index: 0;
+}
+
+@media only screen and (max-width: 900px) {
+  .portrait {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-column: 1 / span 3;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 4;
+    grid-row: 1 / span 4;
+    right: -300px;
+    top: -300px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .portrait {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-column: 1 / span 3;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 4;
+    grid-row: 1 / span 4;
+    right: 0px;
+    top: -300px;
+  }
 }
 
 .conversationBox {
+  z-index: 2;
   background-color: #fefefe;
   color: black;
   border-radius: 25px;
@@ -593,45 +642,117 @@ section .wrapper {
   grid-row: 4 / span 2;
   padding: 15px;
   margin: 10px;
+  position: relative;
+}
+
+@media only screen and (max-width: 900px) {
+  .conversationBox {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 4;
+    grid-column: 1 / span 4;
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 3;
+    grid-row: 3 / span 3;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .conversationBox {
+    grid-column: 1 / -1;
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 2;
+    grid-row: 3 / span 2;
+    margin-top: 50px;
+    padding-bottom: 40vh;
+  }
 }
 
 .conversationBox h2 {
-  font-size: 20px;
+  font-size: 2rem;
   margin: 0;
 }
 
 .conversationBox > p {
-  font-size: 17px;
+  font-size: 1.7rem;
   margin: 0;
   padding-bottom: 10px;
+}
+
+.leaveButton {
+  z-index: 10;
+  position: absolute;
+  top: -10px;
+  left: 15px;
+}
+
+.leaveButton button {
+  position: absolute;
+  right: -50px;
+  bottom: 0px;
+}
+
+.leaveButton button:hover, .leaveButton button:focus {
+  right: -75px;
+  bottom: -25px;
+  height: 100px;
+  width: 100px;
+}
+
+@media (hover: none) {
+  .leaveButton button {
+    height: 100px;
+    width: 100px;
+    left: 0px;
+    bottom: 0px;
+  }
 }
 
 .buttonFlex {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  margin-top: 35px;
+  margin-top: 0px;
 }
 
 .buttonFlex button {
   z-index: 2;
-  font-size: 17px;
   position: relative;
   top: 0;
+  width: 100%;
+  height: auto;
+  border-radius: 25px;
+  margin: 5px 0;
+  padding: 10px 0;
 }
 
-.buttonFlex button:hover,
-.buttonFlex button:focus {
-  top: -25px;
-  height: 100px;
-  width: 100px;
+.buttonFlex button p {
+  font-size: 1.5rem;
+  color: #fefefe;
+  opacity: 0.7;
+  text-align: left;
+  padding: 10px;
+  margin: 0;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.buttonFlex button:hover p, .buttonFlex button:focus p {
+  opacity: 1;
+  font-size: 1.7rem;
+}
+
+@media (hover: none) {
+  .buttonFlex button p {
+    opacity: 1;
+    font-size: 1.7rem;
+  }
 }
 
 /* End Frame */
@@ -666,6 +787,13 @@ section .wrapper {
 .endFrame button:hover, .endFrame button:focus {
   height: 100px;
   width: 100px;
+}
+
+@media (hover: none) {
+  .endFrame button {
+    height: 100px;
+    width: 100px;
+  }
 }
 
 /* Footer Styles - footer.scss */
