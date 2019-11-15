@@ -3,15 +3,18 @@ const horrorGame = {};
 horrorGame.start = () => {
   borisNpc.reset();
   horrorGame.showDialogue(borisNpc);
-  
 
   $(horrorGame.frames)
     .find('.window').addClass('hideFrame')
     .find('.closedEye').removeClass('hideFrame');
-  horrorGame.changeFrame(1);
+
+  horrorGame.currentFrame = 0;
+  horrorGame.previousFrame = -1;
+  horrorGame.changeFrame(horrorGame.currentFrame);
 }
 // $element.on('transitionend webkitTransitionEnd oTransitionEnd', function () { // your event handler });
 horrorGame.changeFrame = (n) => {
+  horrorGame.previousFrame = horrorGame.currentFrame;
   //Hide current frame and show eyeball cover
   $(horrorGame.frames[horrorGame.currentFrame])
     .find('.window').addClass('hideFrame')
@@ -64,7 +67,6 @@ horrorGame.setEndScreen = (text, imgUrl) => {
 }
 
 horrorGame.showDialogue = (conversationObject) => {
-  //Set the overall npc settings
   //Set the text of the name
   horrorGame.npcName.text(conversationObject.name);
   //Set the npc portrait
@@ -72,26 +74,25 @@ horrorGame.showDialogue = (conversationObject) => {
   //Store the dialogue object in a shorter name
   const dialogue = conversationObject.dialogue[conversationObject.currentIndex];
   //Set the current text
-  horrorGame.npcText.text(dialogue.text);
 
-  // if(conversationObject.currentIndex > 0){
-  //   horrorGame.responseList.fadeOut(function() {
-  //     horrorGame.responseList.empty();
-  //     console.log("aa");
-  //     horrorGame.generateResponseButtons(dialogue.responses);
-  //   });
-  // } else {
-  //   horrorGame.responseList.empty();
-  //   horrorGame.generateResponseButtons(dialogue.responses);
-  // }
-  //Make sure the ul doesn't have any buttons in it
-  horrorGame.responseList.empty();
-  //Append the ul with buttons
-  //Set the html to have the response text
-  //Bind the click event to the response's callback
-  horrorGame.generateResponseButtons(dialogue.responses);
+  //Fade out / change / fade in NPC text
+  horrorGame.npcText.fadeOut(function(){
+    horrorGame.npcText.text(dialogue.text);
+    horrorGame.npcText.fadeIn();
+  });
+  //Fade out / change / fade in response buttons
+  horrorGame.responseList.fadeOut(function(){
+     //Make sure the ul doesn't have any buttons in it
+    horrorGame.responseList.empty();
+    horrorGame.generateResponseButtons(dialogue.responses);
+    horrorGame.responseList.fadeIn();
+  });
 }
 
+
+//Append the ul with buttons
+//Set the html to have the response text
+//Bind the click event to the response's callback
 horrorGame.generateResponseButtons = (responses) => {
   for(let i = 0; i < responses.length; i++){
     const newButton = $(`<li><button></button></li>`);
@@ -137,7 +138,7 @@ borisNpc = {
         },
         {
           text: "(leave)",
-          callback: function () { horrorGame.changeFrame(0); }
+          callback: function () { horrorGame.changeFrame(horrorGame.previousFrame); }
         }
       ]
     },
@@ -154,7 +155,7 @@ borisNpc = {
         },
         {
           text: "(leave)",
-          callback: function () { horrorGame.changeFrame(0); }
+          callback: function () { horrorGame.changeFrame(horrorGame.previousFrame); }
         }
       ]
     },
@@ -171,7 +172,7 @@ borisNpc = {
         },
         {
           text: "(leave)",
-          callback: function () { horrorGame.changeFrame(0); }
+          callback: function () { horrorGame.changeFrame(horrorGame.previousFrame); }
         }
       ]
     }

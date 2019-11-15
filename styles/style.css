@@ -255,6 +255,24 @@ primary: #F3F7F0
 secondary: #19323C
 tertiary: #3F7FA9
 */
+/* Keyframe Stylings keyframes.scss */
+@-webkit-keyframes arrowFloat {
+  0% {
+    top: -10px;
+  }
+  100% {
+    top: 10px;
+  }
+}
+@keyframes arrowFloat {
+  0% {
+    top: -10px;
+  }
+  100% {
+    top: 10px;
+  }
+}
+
 /* Type Styles - type.scss */
 * {
   font-family: sans-serif;
@@ -433,6 +451,12 @@ section .wrapper {
   -ms-grid-column: 2;
   grid-column: 2;
   margin-top: 60px;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1 / span 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 3;
+  grid-column: 2 / span 3;
 }
 
 .tutorial p {
@@ -474,42 +498,22 @@ section .wrapper {
   width: 100px;
 }
 
-.cursorOne {
-  -ms-grid-row: 2;
+.tutorial .buttonDiv {
+  -ms-grid-row: 5;
   -ms-grid-row-span: 1;
-  grid-row: 2 / span 1;
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 3;
-  grid-column: 2 / span 3;
-  margin: 0;
-}
-
-.cursorOne p {
-  display: inline;
-}
-
-.cursorOne img {
-  display: inline;
-}
-
-.cursorTwo {
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 1;
-  grid-row: 2 / span 1;
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 3;
-  grid-column: 2 / span 3;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  grid-row: 5 / span 1;
 }
 
 .tutorialArrow {
-  -ms-grid-row: 3;
+  -ms-grid-row: 4;
   -ms-grid-row-span: 1;
-  grid-row: 3 / span 1;
+  grid-row: 4 / span 1;
   -ms-grid-column: 3;
   -ms-grid-column-span: 1;
   grid-column: 3 / span 1;
+  position: relative;
+  top: 0px;
+  animation: arrowFloat 1s infinite ease-in-out alternate-reverse;
 }
 
 .tutorialArrow img {
