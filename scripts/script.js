@@ -12,6 +12,8 @@ horrorGame.start = () => {
   horrorGame.previousFrame = -1;
   horrorGame.changeFrame(horrorGame.currentFrame);
   horrorGame.changeEye(0);
+
+  horrorGame.inventory = [];
 }
 
 horrorGame.changeFrame = (n) => {
@@ -126,6 +128,10 @@ horrorGame.bindAnimation = (triggerElement, element, animationClass) =>{
 //Get all eye overlay images and change their source to the pass level
 horrorGame.changeEye = (n) => {
   $('.closedEye').find('img').attr('src', `./assets/eye/eye${n}.png`);
+}
+
+horrorGame.checkInventory = (item) => {
+  return horrorGame.inventory.includes(item);
 }
 
 horrorGame.init = () => {
