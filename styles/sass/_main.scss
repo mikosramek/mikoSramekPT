@@ -28,6 +28,16 @@ button {
   }
 }
 
+.buttonDiv {
+  grid-row: 4 / span 1;
+  grid-column: 3 / span 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
 section .wrapper{
   position: relative;
 }
@@ -58,6 +68,78 @@ section .wrapper{
   transition: all 1s;
   button {
     display: none;
+  }
+}
+
+.tutorial {
+  background-color: $primaryWhite;
+  position: absolute;
+  z-index: 200;
+  top: 0;right: 0;left: 0;bottom: 0;
+  color: $primaryBlack;
+  display: grid;
+  grid-template-columns: repeat(5, 20%);
+  grid-template-rows: repeat(5, 18vh);
+  border-bottom: 10px solid $primaryBlack;
+  h2 {
+    font-size: 2.5rem;
+    grid-column: 2;
+    margin-top: 60px;
+  }
+  p {
+    font-size: 2rem;
+  }
+  ul {
+    grid-row: 2 / span 1;
+    grid-column: 2 / span 3;
+    font-size: 2rem;
+    li {
+      position: relative;
+      margin: 10px 0;
+    }
+    li::before {
+      content: '';
+      display: block;
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      left: -15px;
+      top: 5px;
+      border-radius: 50%;
+      background-color: $primaryBlack;
+    }
+  }
+  button:hover,
+  button:focus {
+    top: 75px;
+    left: 25px;
+    height:100px;
+    width:100px;
+  }
+}
+.cursorOne {
+  grid-row: 2 / span 1;
+  grid-column: 2 / span 3;
+  margin: 0;
+  p {
+    display: inline;
+  }
+  img {
+    display: inline;
+  }
+}
+.cursorTwo {
+  grid-row: 2 / span 1;
+  grid-column: 2 / span 3;
+  align-self: flex-end;
+}
+.tutorialArrow {
+  grid-row: 3 / span 1;
+  grid-column: 3 / span 1;
+  img {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
   }
 }
 
@@ -94,12 +176,6 @@ section .wrapper{
     height:100px;
     width:100px;
   }
-}
-.frameOne p {
-  margin: 0;
-  padding: 0;
-  grid-column: 3 / span 2;
-  grid-row: 2 / span 1;
 }
 
 /* Frame 2 */
@@ -153,15 +229,6 @@ section .wrapper{
 
 /* End Frame */
 
-.buttonDiv {
-  grid-row: 4 / span 1;
-  grid-column: 3 / span 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
 .endingIcon {
   display: flex;
   justify-content: center;

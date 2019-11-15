@@ -8,7 +8,7 @@ horrorGame.start = () => {
   $(horrorGame.frames)
     .find('.window').addClass('hideFrame')
     .find('.closedEye').removeClass('hideFrame');
-  horrorGame.changeFrame(0);
+  horrorGame.changeFrame(1);
 }
 // $element.on('transitionend webkitTransitionEnd oTransitionEnd', function () { // your event handler });
 horrorGame.changeFrame = (n) => {
@@ -34,6 +34,9 @@ horrorGame.changeFrame = (n) => {
 
 // Bind events here
 horrorGame.bindEvents = () => {
+  $('#tutorialClose').on('click', function() {
+    $('#tutorial').fadeOut();
+  });
   $('#characterOne button').on('click', function(){
     horrorGame.changeFrame(1);
   });
@@ -71,17 +74,31 @@ horrorGame.showDialogue = (conversationObject) => {
   //Set the current text
   horrorGame.npcText.text(dialogue.text);
 
+  // if(conversationObject.currentIndex > 0){
+  //   horrorGame.responseList.fadeOut(function() {
+  //     horrorGame.responseList.empty();
+  //     console.log("aa");
+  //     horrorGame.generateResponseButtons(dialogue.responses);
+  //   });
+  // } else {
+  //   horrorGame.responseList.empty();
+  //   horrorGame.generateResponseButtons(dialogue.responses);
+  // }
   //Make sure the ul doesn't have any buttons in it
   horrorGame.responseList.empty();
   //Append the ul with buttons
   //Set the html to have the response text
   //Bind the click event to the response's callback
-  for(let i = 0; i < dialogue.responses.length; i++){
+  horrorGame.generateResponseButtons(dialogue.responses);
+}
+
+horrorGame.generateResponseButtons = (responses) => {
+  for(let i = 0; i < responses.length; i++){
     const newButton = $(`<li><button></button></li>`);
     $(newButton).appendTo(horrorGame.responseList)
       .find('button')
-      .html(`<p>${dialogue.responses[i].text}</p>`)
-      .on('click', dialogue.responses[i].callback);
+      .html(`<p>${responses[i].text}</p>`)
+      .on('click', responses[i].callback);
   }
 }
 

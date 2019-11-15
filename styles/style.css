@@ -273,7 +273,7 @@ a:visited {
 }
 
 html {
-  background-color: black;
+  background-color: #0E0E0E;
   cursor: url("../assets/handIdle.svg") 15 15, auto;
 }
 
@@ -340,6 +340,26 @@ button:hover p, button:focus p {
   opacity: 1;
 }
 
+.buttonDiv {
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  grid-row: 4 / span 1;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3 / span 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
 section .wrapper {
   position: relative;
 }
@@ -390,6 +410,114 @@ section .wrapper {
   display: none;
 }
 
+.tutorial {
+  background-color: #fefefe;
+  position: absolute;
+  z-index: 200;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  color: #0E0E0E;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (20%)[5];
+      grid-template-columns: repeat(5, 20%);
+  -ms-grid-rows: (18vh)[5];
+      grid-template-rows: repeat(5, 18vh);
+  border-bottom: 10px solid #0E0E0E;
+}
+
+.tutorial h2 {
+  font-size: 2.5rem;
+  -ms-grid-column: 2;
+  grid-column: 2;
+  margin-top: 60px;
+}
+
+.tutorial p {
+  font-size: 2rem;
+}
+
+.tutorial ul {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2 / span 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 3;
+  grid-column: 2 / span 3;
+  font-size: 2rem;
+}
+
+.tutorial ul li {
+  position: relative;
+  margin: 10px 0;
+}
+
+.tutorial ul li::before {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  left: -15px;
+  top: 5px;
+  border-radius: 50%;
+  background-color: #0E0E0E;
+}
+
+.tutorial button:hover,
+.tutorial button:focus {
+  top: 75px;
+  left: 25px;
+  height: 100px;
+  width: 100px;
+}
+
+.cursorOne {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2 / span 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 3;
+  grid-column: 2 / span 3;
+  margin: 0;
+}
+
+.cursorOne p {
+  display: inline;
+}
+
+.cursorOne img {
+  display: inline;
+}
+
+.cursorTwo {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2 / span 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 3;
+  grid-column: 2 / span 3;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.tutorialArrow {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3 / span 1;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3 / span 1;
+}
+
+.tutorialArrow img {
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+}
+
 /* Frame 1 */
 .backgroundLine {
   grid-column: 1 / -1;
@@ -433,17 +561,6 @@ section .wrapper {
   left: 25px;
   height: 100px;
   width: 100px;
-}
-
-.frameOne p {
-  margin: 0;
-  padding: 0;
-  -ms-grid-column: 3;
-  -ms-grid-column-span: 2;
-  grid-column: 3 / span 2;
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 1;
-  grid-row: 2 / span 1;
 }
 
 /* Frame 2 */
@@ -514,26 +631,6 @@ section .wrapper {
 }
 
 /* End Frame */
-.buttonDiv {
-  -ms-grid-row: 4;
-  -ms-grid-row-span: 1;
-  grid-row: 4 / span 1;
-  -ms-grid-column: 3;
-  -ms-grid-column-span: 1;
-  grid-column: 3 / span 1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 100%;
-  height: 100%;
-}
-
 .endingIcon {
   display: -webkit-box;
   display: -ms-flexbox;
