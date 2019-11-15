@@ -425,6 +425,10 @@ button:hover span, button:focus span {
   opacity: 1;
 }
 
+button:focus {
+  outline: 2px dashed #EF414C;
+}
+
 @media (hover: none) {
   button {
     height: 100px;
@@ -507,6 +511,18 @@ section .wrapper {
 
 .hideFrame button {
   display: none;
+}
+
+.background {
+  z-index: 1;
+}
+
+.midground {
+  z-index: 2;
+}
+
+.foreground {
+  z-index: 3;
 }
 
 .tutorial {
@@ -879,8 +895,8 @@ section .wrapper {
   text-align: left;
   padding: 10px;
   margin: 0;
-  -webkit-transition: all 1s;
-  transition: all 1s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
   -webkit-transform-origin: left;
           transform-origin: left;
 }
@@ -895,6 +911,29 @@ section .wrapper {
   .buttonFlex button p {
     opacity: 1;
   }
+}
+
+/* Frame Three */
+.placard {
+  -ms-grid-column: 1;
+  grid-column: 1;
+  -ms-grid-row: 2;
+  grid-row: 2;
+}
+
+.key {
+  -ms-grid-column: 1;
+  grid-column: 1;
+  -ms-grid-row: 2;
+  grid-row: 2;
+}
+
+.skull {
+  -ms-grid-column: 3;
+  grid-column: 3;
+  -ms-grid-row: 2;
+  grid-row: 2;
+  z-index: 1;
 }
 
 /* End Frame */

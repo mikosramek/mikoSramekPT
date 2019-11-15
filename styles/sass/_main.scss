@@ -26,6 +26,9 @@ button {
       opacity: 1;
     }
   }
+  &:focus {
+    outline: 2px dashed $inputAccent;
+  }
   //This needs to be overwritten for buttons that need to be shifted
   @media(hover:none) {
     height: 100px;
@@ -80,6 +83,16 @@ section .wrapper{
   button {
     display: none;
   }
+}
+
+.background {
+  z-index: 1;
+}
+.midground {
+  z-index: 2;
+}
+.foreground {
+  z-index: 3;
 }
 
 .tutorial {
@@ -338,7 +351,7 @@ section .wrapper{
       text-align: left;
       padding: 10px;
       margin: 0;
-      transition: all 1s;
+      transition: all 0.5s;
       transform-origin: left;
 
     }
@@ -346,21 +359,33 @@ section .wrapper{
     &:hover,
     &:focus {
       p {
-        
         opacity: 1;
-        // font-size: 1.7rem;
-        
         transform: scale((1.1));
       }
     }
     @media(hover:none) {
       p {
         opacity: 1;
-        // font-size: 1.7rem;
-        // transform: scale((1.1));
       }
     }
   }
+}
+
+/* Frame Three */
+
+.placard {
+  grid-column: 1;
+  grid-row: 2;
+}
+.key {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.skull {
+  grid-column: 3;
+  grid-row: 2;
+  z-index: 1;
 }
 
 /* End Frame */
