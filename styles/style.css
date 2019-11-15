@@ -466,10 +466,6 @@ section .wrapper {
   grid-column: 2 / span 3;
 }
 
-.tutorial p {
-  font-size: 2rem;
-}
-
 .tutorial ul {
   -ms-grid-row: 2;
   -ms-grid-row-span: 1;
@@ -477,12 +473,18 @@ section .wrapper {
   -ms-grid-column: 2;
   -ms-grid-column-span: 3;
   grid-column: 2 / span 3;
-  font-size: 2rem;
 }
 
 .tutorial ul li {
   position: relative;
+  font-size: 2rem;
   margin: 10px 0;
+}
+
+@media only screen and (max-width: 650px) {
+  .tutorial ul li {
+    font-size: 1.5rem;
+  }
 }
 
 .tutorial ul li::before {
@@ -495,6 +497,14 @@ section .wrapper {
   top: 5px;
   border-radius: 50%;
   background-color: #0E0E0E;
+}
+
+@media only screen and (max-width: 650px) {
+  .tutorial ul li::before {
+    width: 7.5px;
+    height: 7.5px;
+    top: 3.5px;
+  }
 }
 
 .tutorial button {
@@ -628,6 +638,12 @@ section .wrapper {
   }
 }
 
+@media only screen and (max-width: 400px) {
+  .portrait {
+    display: none;
+  }
+}
+
 .conversationBox {
   z-index: 2;
   background-color: #fefefe;
@@ -667,6 +683,13 @@ section .wrapper {
   }
 }
 
+@media only screen and (max-width: 400px) {
+  .conversationBox {
+    grid-row: 1 / -1;
+    margin-top: 20vh;
+  }
+}
+
 .conversationBox h2 {
   font-size: 2rem;
   margin: 0;
@@ -703,7 +726,7 @@ section .wrapper {
     height: 100px;
     width: 100px;
     left: 0px;
-    bottom: 0px;
+    bottom: -20px;
   }
 }
 

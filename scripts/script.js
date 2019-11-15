@@ -159,11 +159,11 @@ borisNpc = {
       responses: [
         {
           text: 'Thanks.',
-          callback: function () { horrorGame.changeFrame(2); }
+          callback: function () { horrorGame.changeFrame(-1); horrorGame.setEndScreen('(you escaped)', './assets/heartIcon.svg'); }
         },
         {
           text: 'Okay.',
-          callback: function () { horrorGame.changeFrame(2); }
+          callback: function () { horrorGame.changeFrame(-1); horrorGame.setEndScreen('(you escaped)', './assets/heartIcon.svg'); }
         }
       ]
     }

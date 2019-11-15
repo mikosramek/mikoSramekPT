@@ -94,16 +94,16 @@ section .wrapper{
     grid-row: 1 / span 1;
     grid-column: 2 / span 3;
   }
-  p {
-    font-size: 2rem;
-  }
   ul {
     grid-row: 2 / span 1;
     grid-column: 2 / span 3;
-    font-size: 2rem;
     li {
       position: relative;
+      font-size: 2rem;
       margin: 10px 0;
+      @include media($secondBreak){
+        font-size: 1.5rem;
+      }
     }
     li::before {
       content: '';
@@ -115,6 +115,11 @@ section .wrapper{
       top: 5px;
       border-radius: 50%;
       background-color: $primaryBlack;
+      @include media($secondBreak){
+        width: 7.5px;
+        height: 7.5px;
+        top: 3.5px;
+      }
     }
   }
   button {
@@ -210,6 +215,9 @@ section .wrapper{
     right: 0px;
     top: -300px;
   }
+  @include media($thirdBreak){
+    display: none;
+  }
 }
 .conversationBox {
   z-index: 2;
@@ -231,6 +239,10 @@ section .wrapper{
     grid-row: 3 / span 2;
     margin-top: 50px;
     padding-bottom: 40vh;
+  }
+  @include media($thirdBreak){
+    grid-row: 1 / -1;
+    margin-top: 20vh;
   }
   h2 {
     font-size: 2rem;
@@ -262,7 +274,7 @@ section .wrapper{
       height: 100px;
       width: 100px;
       left: 0px;
-      bottom: 0px;
+      bottom: -20px;
     }
   }
 }
