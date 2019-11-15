@@ -7,3 +7,26 @@
   }
 
 }
+
+@keyframes smallSideWaysWiggle {
+  0%{
+    transform-origin: bottom center;
+    left: 0;
+    transform: rotate(0);
+  }
+  25% {
+    transform-origin: bottom center;
+    left: 4px;
+    transform: rotate(1deg);
+  }
+  75% {
+    transform-origin: bottom center;
+    left: -4px;
+    transform: rotate(-1deg);
+  }
+  100% {
+    transform-origin: bottom center;
+    left: 0;
+    transform: rotate(0);
+  }
+}

@@ -5,7 +5,6 @@ main {
 
 button {
   background-color: $primaryAccent;
-  border: none;
   color: $primaryColor;
   cursor: pointer;
   border-radius: 50%;
@@ -13,6 +12,7 @@ button {
   height: 50px;
   width: 50px;
   padding:0;
+  border: 1px solid $primaryAccent;
   span {
     font-size: 20px;
     opacity: 0;
@@ -25,6 +25,11 @@ button {
     span {
       opacity: 1;
     }
+  }
+  //This needs to be overwritten for buttons that need to be shifted
+  @media(hover:none) {
+    height: 100px;
+    width: 100px;
   }
   @media(hover:none) {
     span {
@@ -188,9 +193,35 @@ section .wrapper{
     @media(hover:none) {
       height: 100px;
       width: 100px;
-      // top: 0px;
-      // left: 0px;
     }
+  }
+}
+
+.shrooms {
+  grid-row: 3 / span 1;
+  grid-column: 4;
+  z-index: 1;
+  position: relative;
+  bottom: 50px;
+  margin-bottom: 10px;
+  img {
+    height: 100%;
+    min-height: 250px;
+    position: relative;
+  }
+  button {
+    z-index: 1;
+    position: absolute;
+    top:75px;
+    left:0;
+    &:hover,
+    &:focus {
+      top: 50px;
+      left: -25px;
+      height:100px;
+      width:100px;
+    }
+   
   }
 }
 
@@ -225,7 +256,7 @@ section .wrapper{
   color: black;
   border-radius: 25px;
   border: 10px solid $primaryBlack;
-  grid-column: 1 / span 3;
+  grid-column: 1 / span 4;
   grid-row: 4 / span 2;
   padding: 15px;
   margin: 10px;
@@ -247,6 +278,7 @@ section .wrapper{
   h2 {
     font-size: 2rem;
     margin: 0;
+    margin-top: 10px;
   }
   >p {
     font-size: 1.7rem;
@@ -257,8 +289,11 @@ section .wrapper{
 .leaveButton {
   z-index: 10;
   position: absolute;
-  top: -10px;
-  left: 15px;
+  top: 20px;
+  right: 20px;
+  @include media($secondBreak){
+    right: 60px;
+  }
   button {
     position: absolute;
     right: -50px;
@@ -284,12 +319,15 @@ section .wrapper{
   flex-direction: column;
   justify-content: space-evenly;
   margin-top: 0px;
+  li {
+    height: 50%;
+  }
   button {
     z-index: 2;
     position: relative;
     top: 0;
     width: 100%;
-    height: auto;
+    height: calc(100% - 5px);
     border-radius: 25px;
     margin: 5px 0;
     padding: 10px 0;
@@ -301,19 +339,25 @@ section .wrapper{
       padding: 10px;
       margin: 0;
       transition: all 1s;
+      transform-origin: left;
+
     }
   
     &:hover,
     &:focus {
       p {
+        
         opacity: 1;
-        font-size: 1.7rem;
+        // font-size: 1.7rem;
+        
+        transform: scale((1.1));
       }
     }
     @media(hover:none) {
       p {
         opacity: 1;
-        font-size: 1.7rem;
+        // font-size: 1.7rem;
+        // transform: scale((1.1));
       }
     }
   }

@@ -12,14 +12,14 @@ horrorGame.start = () => {
   horrorGame.previousFrame = -1;
   horrorGame.changeFrame(horrorGame.currentFrame);
 }
-// $element.on('transitionend webkitTransitionEnd oTransitionEnd', function () { // your event handler });
+
 horrorGame.changeFrame = (n) => {
+  //Store the current frame as the previous frame
   horrorGame.previousFrame = horrorGame.currentFrame;
-  //Hide current frame and show eyeball cover
+  //Hide the current frame and show eyeball cover
   $(horrorGame.frames[horrorGame.currentFrame])
     .find('.window').addClass('hideFrame')
     .find('.closedEye').removeClass('hideFrame');
-
     if(n === -1){
       n = horrorGame.frames.length - 1;
     }
@@ -30,7 +30,7 @@ horrorGame.changeFrame = (n) => {
   
   //Scroll the html/body to the top of the next frame
   $('HTML, body').animate({scrollTop: $(horrorGame.frames[n]).offset().top - 30}, 1000);
-  //Set the current frame to the next frame
+  //Update the current frame
   horrorGame.currentFrame = n;
 }
 
@@ -48,7 +48,11 @@ horrorGame.bindEvents = () => {
   });
   $('#leaveConversationOneButton').on('click', function() {
     horrorGame.changeFrame(horrorGame.previousFrame);
-  })
+  });
+  //Animations
+  $('#shrooms').on('click', function(){
+    horrorGame.triggerAnimation($(this).siblings('img'), 'smallSideWaysWiggle');
+  });
 }
 horrorGame.findDomReferences = () => {
   horrorGame.frames = $('#frameHolder').children();
@@ -106,6 +110,14 @@ horrorGame.generateResponseButtons = (responses) => {
   }
 }
 
+//Give the passed dom element the passed animation class
+//Then bind it to have animationend remove the passed animation class
+horrorGame.triggerAnimation = (element, animationClass) =>{
+  $(element).addClass(animationClass);
+    $(element).on('animationend webkitTransitionEnd oTransitionEnd', function(){
+      $(element).removeClass(animationClass);
+    });
+}
 horrorGame.init = () => {
   horrorGame.bindEvents();
   horrorGame.findDomReferences();

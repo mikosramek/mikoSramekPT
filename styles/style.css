@@ -273,6 +273,73 @@ tertiary: #3F7FA9
   }
 }
 
+@-webkit-keyframes smallSideWaysWiggle {
+  0% {
+    -webkit-transform-origin: bottom center;
+            transform-origin: bottom center;
+    left: 0;
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  25% {
+    -webkit-transform-origin: bottom center;
+            transform-origin: bottom center;
+    left: 4px;
+    -webkit-transform: rotate(1deg);
+            transform: rotate(1deg);
+  }
+  75% {
+    -webkit-transform-origin: bottom center;
+            transform-origin: bottom center;
+    left: -4px;
+    -webkit-transform: rotate(-1deg);
+            transform: rotate(-1deg);
+  }
+  100% {
+    -webkit-transform-origin: bottom center;
+            transform-origin: bottom center;
+    left: 0;
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+}
+
+@keyframes smallSideWaysWiggle {
+  0% {
+    -webkit-transform-origin: bottom center;
+            transform-origin: bottom center;
+    left: 0;
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  25% {
+    -webkit-transform-origin: bottom center;
+            transform-origin: bottom center;
+    left: 4px;
+    -webkit-transform: rotate(1deg);
+            transform: rotate(1deg);
+  }
+  75% {
+    -webkit-transform-origin: bottom center;
+            transform-origin: bottom center;
+    left: -4px;
+    -webkit-transform: rotate(-1deg);
+            transform: rotate(-1deg);
+  }
+  100% {
+    -webkit-transform-origin: bottom center;
+            transform-origin: bottom center;
+    left: 0;
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+}
+
+.smallSideWaysWiggle {
+  -webkit-animation: smallSideWaysWiggle 1s linear;
+          animation: smallSideWaysWiggle 1s linear;
+}
+
 /* Type Styles - type.scss */
 * {
   font-family: sans-serif;
@@ -331,7 +398,6 @@ main {
 
 button {
   background-color: #0E0E0E;
-  border: none;
   color: #fefefe;
   cursor: pointer;
   border-radius: 50%;
@@ -340,6 +406,7 @@ button {
   height: 50px;
   width: 50px;
   padding: 0;
+  border: 1px solid #0E0E0E;
 }
 
 button span {
@@ -356,6 +423,13 @@ button:hover, button:focus {
 
 button:hover span, button:focus span {
   opacity: 1;
+}
+
+@media (hover: none) {
+  button {
+    height: 100px;
+    width: 100px;
+  }
 }
 
 @media (hover: none) {
@@ -598,6 +672,38 @@ section .wrapper {
   }
 }
 
+.shrooms {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3 / span 1;
+  -ms-grid-column: 4;
+  grid-column: 4;
+  z-index: 1;
+  position: relative;
+  bottom: 50px;
+  margin-bottom: 10px;
+}
+
+.shrooms img {
+  height: 100%;
+  min-height: 250px;
+  position: relative;
+}
+
+.shrooms button {
+  z-index: 1;
+  position: absolute;
+  top: 75px;
+  left: 0;
+}
+
+.shrooms button:hover, .shrooms button:focus {
+  top: 50px;
+  left: -25px;
+  height: 100px;
+  width: 100px;
+}
+
 /* Frame 2 */
 .portrait {
   -ms-grid-column: 3;
@@ -651,8 +757,8 @@ section .wrapper {
   border-radius: 25px;
   border: 10px solid #0E0E0E;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
-  grid-column: 1 / span 3;
+  -ms-grid-column-span: 4;
+  grid-column: 1 / span 4;
   -ms-grid-row: 4;
   -ms-grid-row-span: 2;
   grid-row: 4 / span 2;
@@ -693,6 +799,7 @@ section .wrapper {
 .conversationBox h2 {
   font-size: 2rem;
   margin: 0;
+  margin-top: 10px;
 }
 
 .conversationBox > p {
@@ -704,8 +811,14 @@ section .wrapper {
 .leaveButton {
   z-index: 10;
   position: absolute;
-  top: -10px;
-  left: 15px;
+  top: 20px;
+  right: 20px;
+}
+
+@media only screen and (max-width: 650px) {
+  .leaveButton {
+    right: 60px;
+  }
 }
 
 .leaveButton button {
@@ -744,12 +857,16 @@ section .wrapper {
   margin-top: 0px;
 }
 
+.buttonFlex li {
+  height: 50%;
+}
+
 .buttonFlex button {
   z-index: 2;
   position: relative;
   top: 0;
   width: 100%;
-  height: auto;
+  height: calc(100% - 5px);
   border-radius: 25px;
   margin: 5px 0;
   padding: 10px 0;
@@ -764,17 +881,19 @@ section .wrapper {
   margin: 0;
   -webkit-transition: all 1s;
   transition: all 1s;
+  -webkit-transform-origin: left;
+          transform-origin: left;
 }
 
 .buttonFlex button:hover p, .buttonFlex button:focus p {
   opacity: 1;
-  font-size: 1.7rem;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 @media (hover: none) {
   .buttonFlex button p {
     opacity: 1;
-    font-size: 1.7rem;
   }
 }
 
