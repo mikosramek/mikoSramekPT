@@ -4,7 +4,7 @@ a:visited {
     border:none;
     color: inherit;
 }
-html {
+html,body {
     background-color: $primaryBlack;
     cursor: url('../assets/handIdle.svg') 15 15, auto;
 }

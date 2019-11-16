@@ -1,3 +1,11 @@
 .smallSideWaysWiggle {
   animation: smallSideWaysWiggle 1s linear;
 }
+
+.buttonAnimation {
+  animation: buttonPressAnimation 1s linear forwards;
+}
+.leverAnimation {
+  transform-origin: bottom left;
+  animation: leverPullAnimation 1s linear forwards;
+}

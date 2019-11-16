@@ -8,14 +8,34 @@
   <link rel='stylesheet' href='styles/style.css'>
   <title>mikoSramekProjectThree</title>
 </head>
-<body>
+<body>  
   <header>
+    <!-- Start of Wrapper -->
     <div class="wrapper">
       <h1>title</h1>
+    
+      <button class="menuButton" id="menuButton"><i class='fas fa-bars'></i></button>
     </div> <!-- End of Wrapper -->
   </header>
   <main>
-
+    
+    <div class="wrapper">
+      <nav class="clearfix hiddenNav" id="mainNav">
+        <h2>Navigation</h2>
+        <ul class="buttonFlex" id="navUl">
+          <li><button><span>1</span></button></li>
+          <li><button><span>1</span></button></li>
+          <li><button><span>1</span></button></li>
+          <li><button><span>1</span></button></li>
+          <li><button><span>1</span></button></li>
+          <li><button><span>1</span></button></li>
+          <li><button><span>1</span></button></li>
+          <li><button><span>1</span></button></li>
+          <li><button><span>1</span></button></li>
+          <li><button><span>1</span></button></li>
+        </ul>
+      </nav>
+    </div>
     <div class="frameHolder" id="frameHolder">
       <!-- Start of Frame One Section -->
       <section class="frameOne">
@@ -153,6 +173,7 @@
                   </button>
                   <img src="./assets/skull.png" alt="">
                 </div> <!-- End of Skull Div -->
+                
               </div> <!-- End of Window Div -->
   
             </div> <!-- End of Wrapper -->
@@ -161,22 +182,22 @@
       <!-- Start of Frame Four Section -->
       <section class="frameFour">
         
-        <!-- Start of Wrapper -->
-          <div class="wrapper">
-  
-            <!-- Start of Eye Div -->
-              <div class="closedEye">
-                <img src="./assets/eye/eye0.png" alt="">
-              </div> <!-- End of Eye Div -->
-  
-              <!-- Start of Window Div -->
-              <div class="window hideFrame"> 
-  
-              </div> <!-- End of Window Div -->
-  
-            </div> <!-- End of Wrapper -->
-      </section> <!-- End of Frame Four Section -->
-  
+          <!-- Start of Wrapper -->
+            <div class="wrapper">
+    
+              <!-- Start of Eye Div -->
+                <div class="closedEye">
+                  <img src="./assets/eye/eye0.png" alt="">
+                </div> <!-- End of Eye Div -->
+    
+                <!-- Start of Window Div -->
+                <div class="window hideFrame"> 
+                  <h2>Frame 4</h2>
+                </div> <!-- End of Window Div -->
+    
+              </div> <!-- End of Wrapper -->
+        </section> <!-- End of Frame Four Section -->
+
       <!-- Start of Frame Five Section -->
       <section class="frameFive">
         
@@ -190,7 +211,18 @@
   
               <!-- Start of Window Div -->
               <div class="window hideFrame"> 
-  
+                <!-- Start of Background Line Div -->
+                <div class="backgroundLine background">
+                  <img src="./assets/wallLine.png" alt="">
+                </div> <!-- End of Background Line Div -->
+                 <!-- Start of Door Div -->
+                <div class="door foreground" id="doorFive">
+                  <button>
+                    <span>(go)</span>
+                  </button>
+                  <img src="./assets/door.png" alt="">
+                </div> <!-- End of Door Div -->
+
               </div> <!-- End of Window Div -->
   
             </div> <!-- End of Wrapper -->
@@ -240,7 +272,10 @@
                 </div> <!-- End of Panel Div -->
   
                 <!-- Start of Interactable Div -->
-                <div class="panelInteractable midground">
+                <div class="panelInteractable midground" id="doorSevenButton">
+                  <button>
+                    <span>(pull)</span>
+                  </button>
                   <img src="./assets/lever.png" alt="" id="lever">
                 </div> <!-- End of Interactable Div -->
   
@@ -274,8 +309,11 @@
                 </div> <!-- End of Panel Div -->
   
                 <!-- Start of Interactable Div -->
-                <div class="panelInteractable midground">
+                <div class="panelInteractable midground" id="doorEightButton">
                   <img src="./assets/buttonBase.png" alt="" class="buttonBase">
+                  <button>
+                    <span>(press)</span>
+                  </button>
                   <img src="./assets/buttonTop.png" alt="" class="buttonTop" id="buttonTop">
                 </div> <!-- End of Interactable Div -->
   
@@ -297,31 +335,33 @@
   
               <!-- Start of Window Div -->
               <div class="window hideFrame"> 
-  
+                <h2>frame 9</h2>
+                <!-- Start of Background Line Div -->
+                <div class="backgroundLine background">
+                  <img src="./assets/wallLine.png" alt="">
+                </div> <!-- End of Background Line Div -->
+
+                <!-- Start of Door Div -->
+                <div class="door leftDoor foreground" id="doorNineB">
+                  <button>
+                    <span>(go)</span>
+                  </button>
+                  <img src="./assets/door.png" alt="">
+                </div> <!-- End of Door Div -->
+
+                <!-- Start of Door Div -->
+                <div class="door foreground" id="doorNineA">
+                  <button>
+                    <span>(go)</span>
+                  </button>
+                  <img src="./assets/door.png" alt="">
+                </div> <!-- End of Door Div -->
+
               </div> <!-- End of Window Div -->
   
             </div> <!-- End of Wrapper -->
       </section> <!-- End of Frame Nine Section -->
       
-      <!-- Start of Frame Ten Section -->
-      <section class="frameTen">
-        
-        <!-- Start of Wrapper -->
-          <div class="wrapper">
-  
-            <!-- Start of Eye Div -->
-              <div class="closedEye">
-                <img src="./assets/eye/eye0.png" alt="">
-              </div> <!-- End of Eye Div -->
-  
-              <!-- Start of Window Div -->
-              <div class="window hideFrame"> 
-  
-              </div> <!-- End of Window Div -->
-  
-            </div> <!-- End of Wrapper -->
-      </section> <!-- End of Frame Ten Section -->
-  
       <!-- Start of End Frame Section -->
       <section class="endFrame">
   
@@ -362,8 +402,8 @@
   <!-- jQuery -->
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
   <!-- Load any other plugins here: -->
-
   <!-- Main Script -->
   <script src='./scripts/script.js'></script>
+  <script src='https://kit.fontawesome.com/97241a1aa1.js' crossorigin='anonymous'></script>
 </body>
 </html>

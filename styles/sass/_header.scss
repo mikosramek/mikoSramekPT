@@ -1,6 +1,9 @@
 header {
   background-color: $primaryBlack;
   color: $primaryColor; 
+  .wrapper {
+    position: relative;
+  }
 }
 
 h1 {
@@ -8,4 +11,28 @@ h1 {
   padding: 4px 10px;
   font-size: 2rem;
   color: $primaryColor;
+}
+
+.menuButton {
+  background-color: $primaryWhite;
+  color: $primaryBlack;
+  position: absolute;
+  z-index: 999;
+  height: 50px;
+  border-radius: 50%;
+  bottom: -25px;
+  right: 10px;
+  cursor: url('../assets/handActive.svg') 15 15, auto;
+
+  font-size: 2rem;
+  @include target {
+    bottom: -50px;
+    right: -15px;
+    height:$buttonHoverSize;
+    width:$buttonHoverSize;
+  }
+  @media(hover:none) {
+    height: $buttonNoHoverSize;
+    width: $buttonNoHoverSize;
+  }
 }

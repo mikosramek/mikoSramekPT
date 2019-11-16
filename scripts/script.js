@@ -1,50 +1,12 @@
 const horrorGame = {};
 
-horrorGame.start = () => {
-  //Make sure the npc text is back to 0
-  borisNpc.reset();
-  skullNpc.reset();
-  //Populate the first dialogue of the first character
-  horrorGame.showDialogue(borisNpc);
-  //Reset the inventory
-  horrorGame.inventory = [];
 
-  //Hide all appropriate frames
-  $(horrorGame.frames)
-    .find('.window').addClass('hideFrame')
-    .find('.closedEye').removeClass('hideFrame');
-  //Update the eye to it's closed image
-  horrorGame.changeEye(0);
-  //Make the frame tracking information back to default
-  horrorGame.currentFrame = 0;
-  horrorGame.previousFrame = -1;
 
-  //Move the player to the first frame
-  horrorGame.changeFrame(horrorGame.currentFrame);  
+horrorGame.init = () => {
+  horrorGame.bindEvents();
+  horrorGame.findDomReferences();
+  horrorGame.start();
 }
-
-horrorGame.changeFrame = (n) => {
-  //Store the current frame as the previous frame
-  horrorGame.previousFrame = horrorGame.currentFrame;
-  //Hide the current frame and show eyeball cover
-  $(horrorGame.frames[horrorGame.currentFrame])
-    .find('.window').addClass('hideFrame')
-    .find('.closedEye').removeClass('hideFrame');
-    if(n === -1){
-      n = horrorGame.frames.length - 1;
-    }
-  //Show next frame and hide next eyeball cover
-  $(horrorGame.frames[n])
-    .find('.window').removeClass('hideFrame')
-    .find('.closedEye').addClass('hideFrame');
-  
-  //Scroll the html/body to the top of the next frame
-  // $('HTML, body').animate({scrollTop: $(horrorGame.frames[n]).offset().top - 30}, 1000);
-  $('#frameHolder').css({transform: `translateY(calc(${n*-90}vh))`});
-  //Update the current frame
-  horrorGame.currentFrame = n;
-}
-
 
 // Bind events here
 horrorGame.bindEvents = () => {
@@ -68,6 +30,39 @@ horrorGame.bindEvents = () => {
   $('#leaveConversationButton').on('click', function() {
     horrorGame.changeFrame(horrorGame.previousFrame);
   });
+  $('#doorFive button').on('click', function() {
+    horrorGame.setEndScreen('(you died)', './assets/deathIcon.svg');
+    horrorGame.changeFrame(-1);
+  });
+  
+
+  $('#doorEightButton button').on('click', function() {
+    $('#buttonTop').addClass('buttonAnimation');
+    $('#buttonTop').on('animationend webkitTransitionEnd oTransitionEnd', function(){ 
+      //show button for left door
+      horrorGame.showObject('#doorNineB button');
+      horrorGame.changeFrame(8);
+    });
+  });
+  $('#doorSevenButton button').on('click', function() {
+    $('#lever').addClass('leverAnimation');
+    $('#lever').on('animationend webkitTransitionEnd oTransitionEnd', function(){ 
+      //show button for right door
+      horrorGame.showObject('#doorNineA button');
+      horrorGame.changeFrame(8);
+    });
+  });
+
+  $('#doorNineA button').on('click', function() {
+    horrorGame.changeFrame(3);
+  });
+  $('#doorNineB button').on('click', function() {
+    horrorGame.changeFrame(2);
+  });
+
+  $('#menuButton').on('click', function(){
+    $('#mainNav').toggleClass('hiddenNav');
+  });
   //Animations
     //thing that triggers the animation, thing that gets the animation, the animation class name
   horrorGame.bindAnimation($('#shrooms'), $('#shrooms').siblings('img'), 'smallSideWaysWiggle');
@@ -84,7 +79,6 @@ horrorGame.bindAnimation = (triggerElement, targetElement, animationClass) =>{
   });
 }
 
-
 horrorGame.findDomReferences = () => {
   horrorGame.frames = $('#frameHolder').children();
 
@@ -95,6 +89,52 @@ horrorGame.findDomReferences = () => {
   horrorGame.responseList = $('#responseList');
 
   horrorGame.endingDiv = $('#endingDiv');
+
+  horrorGame.nav = $('#navUl');
+}
+
+
+
+
+horrorGame.start = () => {
+  //Make sure the npc text is back to 0
+  borisNpc.reset();
+  skullNpc.reset();
+  //Populate the first dialogue of the first character
+  horrorGame.showDialogue(borisNpc);
+  //Reset the inventory
+  horrorGame.inventory = [];
+
+  //Hide objects (ie bone)
+  horrorGame.hideObject($('#doorNineA button'));
+  horrorGame.hideObject($('#doorNineB button'));
+
+  //Hide all appropriate frames
+  $(horrorGame.frames)
+    .find('.window').addClass('hideFrame')
+    .find('.closedEye').removeClass('hideFrame');
+  //Update the eye to it's closed image
+  horrorGame.changeEye(0);
+  //Make the frame tracking information back to default
+  horrorGame.currentFrame = 0;
+  horrorGame.previousFrame = -1;
+
+  horrorGame.generateNav();
+
+  //Move the player to the first frame
+  horrorGame.changeFrame(horrorGame.currentFrame);  
+  
+}
+
+horrorGame.generateNav = () => {
+  $(horrorGame.nav).empty();
+  for(let i = 0; i < horrorGame.frames.length; i++){
+    const navButton = $(`<li><button><span>${i}</span></button></li>`);
+    $(horrorGame.nav).append(navButton);
+    navButton.find('button').on('click', function(){
+      console.log('a');
+    });
+  }
 }
 
 horrorGame.setEndScreen = (text, imgUrl) => {
@@ -158,11 +198,37 @@ horrorGame.removeFromInventory = (item) => {
 }
 
 
-horrorGame.init = () => {
-  horrorGame.bindEvents();
-  horrorGame.findDomReferences();
-  horrorGame.start();
+
+
+horrorGame.changeFrame = (n) => {
+  //Store the current frame as the previous frame
+  horrorGame.previousFrame = horrorGame.currentFrame;
+  //Hide the current frame and show eyeball cover
+  $(horrorGame.frames[horrorGame.currentFrame])
+    .find('.window').addClass('hideFrame')
+    .find('.closedEye').removeClass('hideFrame');
+    if(n === -1){
+      n = horrorGame.frames.length - 1;
+    }
+  //Show next frame and hide next eyeball cover
+  $(horrorGame.frames[n])
+    .find('.window').removeClass('hideFrame')
+    .find('.closedEye').addClass('hideFrame');
+  
+  //Scroll the html/body to the top of the next frame
+  // $('HTML, body').animate({scrollTop: $(horrorGame.frames[n]).offset().top - 30}, 1000);
+  $('#frameHolder').css({transform: `translateY(calc(${n*-90}vh))`});
+  //Update the current frame
+  horrorGame.currentFrame = n;
 }
+horrorGame.hideObject = (object) => {
+  $(object).hide();
+}
+horrorGame.showObject = (object) => {
+  $(object).show();
+}
+
+
 
 
 $(document).ready(function(){
@@ -219,7 +285,7 @@ borisNpc = {
       responses: [
         {
           text: 'If you say so.',
-          callback: function () { horrorGame.changeEye(4); horrorGame.changeFrame(5); }
+          callback: function () { horrorGame.changeEye(4); horrorGame.changeFrame(4); }
         }
       ]
     },
@@ -241,7 +307,7 @@ borisNpc = {
       responses: [
         {
           text: 'Sure man. Whatever you say.',
-          callback: function () { horrorGame.changeEye(1); horrorGame.changeFrame(5); }
+          callback: function () { horrorGame.changeEye(1); horrorGame.changeFrame(7); }
         }
       ]
     },
@@ -250,7 +316,7 @@ borisNpc = {
       responses: [
         {
           text: 'Okay...',
-          callback: function () { horrorGame.changeEye(4); horrorGame.changeFrame(7); }
+          callback: function () { horrorGame.changeEye(4); horrorGame.changeFrame(6); }
         }
       ]
     }

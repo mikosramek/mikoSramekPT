@@ -353,9 +353,75 @@ tertiary: #3F7FA9
   }
 }
 
+@-webkit-keyframes buttonPressAnimation {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: -8px;
+  }
+  100% {
+    left: -6px;
+  }
+}
+
+@keyframes buttonPressAnimation {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: -8px;
+  }
+  100% {
+    left: -6px;
+  }
+}
+
+@-webkit-keyframes leverPullAnimation {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(70deg);
+            transform: rotate(70deg);
+  }
+  100% {
+    -webkit-transform: rotate(60deg);
+            transform: rotate(60deg);
+  }
+}
+
+@keyframes leverPullAnimation {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(70deg);
+            transform: rotate(70deg);
+  }
+  100% {
+    -webkit-transform: rotate(60deg);
+            transform: rotate(60deg);
+  }
+}
+
 .smallSideWaysWiggle {
   -webkit-animation: smallSideWaysWiggle 1s linear;
           animation: smallSideWaysWiggle 1s linear;
+}
+
+.buttonAnimation {
+  -webkit-animation: buttonPressAnimation 1s linear forwards;
+          animation: buttonPressAnimation 1s linear forwards;
+}
+
+.leverAnimation {
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left;
+  -webkit-animation: leverPullAnimation 1s linear forwards;
+          animation: leverPullAnimation 1s linear forwards;
 }
 
 /* Type Styles - type.scss */
@@ -392,7 +458,7 @@ a:visited {
   color: inherit;
 }
 
-html {
+html, body {
   background-color: #0E0E0E;
   cursor: url("../assets/handIdle.svg") 15 15, auto;
 }
@@ -419,11 +485,42 @@ header {
   color: #fefefe;
 }
 
+header .wrapper {
+  position: relative;
+}
+
 h1 {
   margin: 0;
   padding: 4px 10px;
   font-size: 2rem;
   color: #fefefe;
+}
+
+.menuButton {
+  background-color: #fefefe;
+  color: #0E0E0E;
+  position: absolute;
+  z-index: 999;
+  height: 50px;
+  border-radius: 50%;
+  bottom: -25px;
+  right: 10px;
+  cursor: url("../assets/handActive.svg") 15 15, auto;
+  font-size: 2rem;
+}
+
+.menuButton:hover, .menuButton:focus {
+  bottom: -50px;
+  right: -15px;
+  height: 100px;
+  width: 100px;
+}
+
+@media (hover: none) {
+  .menuButton {
+    height: 75px;
+    width: 75px;
+  }
 }
 
 /* Main Styles - header.scss */
@@ -433,15 +530,13 @@ main {
   overflow: hidden;
 }
 
-.frameHolder {
-  -webkit-transition: all 1s;
-  transition: all 1s;
+main .wrapper {
+  position: relative;
 }
 
 button {
   background-color: #0E0E0E;
   color: #fefefe;
-  cursor: pointer;
   border-radius: 50%;
   -webkit-transition: all 1s;
   transition: all 1s;
@@ -460,6 +555,8 @@ button span {
 }
 
 button:hover, button:focus {
+  height: 100px;
+  width: 100px;
   cursor: url("../assets/handActive.svg") 15 15, auto;
 }
 
@@ -484,6 +581,50 @@ button:focus {
   }
 }
 
+nav {
+  position: absolute;
+  top: 0;
+  z-index: 40;
+  height: 90vh;
+  width: 100%;
+  background-color: #fefefe;
+  opacity: 1;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav h2 {
+  color: #0E0E0E;
+  position: absolute;
+  bottom: 90%;
+  width: 50%;
+}
+
+nav ul {
+  width: 50%;
+  position: absolute;
+  bottom: 10%;
+}
+
+.hiddenNav {
+  height: 0;
+}
+
+.frameHolder {
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
 .buttonDiv {
   -ms-grid-row: 4;
   -ms-grid-row-span: 1;
@@ -502,10 +643,6 @@ button:focus {
           align-items: center;
   width: 100%;
   height: 100%;
-  position: relative;
-}
-
-section .wrapper {
   position: relative;
 }
 
@@ -567,6 +704,45 @@ section .wrapper {
   z-index: 3;
 }
 
+.backgroundLine {
+  grid-column: 1 / -1;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3 / span 1;
+}
+
+.backgroundLine img {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  top: 10px;
+}
+
+.door {
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 2;
+  grid-column: 4 / span 2;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 3;
+  grid-row: 1 / span 3;
+  position: relative;
+  top: 35px;
+}
+
+.door button {
+  position: absolute;
+  top: 150px;
+  left: 0;
+}
+
+.door button:hover, .door button:focus {
+  height: 100px;
+  width: 100px;
+  left: -25px;
+  top: 125px;
+}
+
+/* Frame 1 */
 .tutorial {
   background-color: #fefefe;
   position: absolute;
@@ -676,21 +852,6 @@ section .wrapper {
   margin: 0 auto;
   width: 100%;
   height: 100%;
-}
-
-/* Frame 1 */
-.backgroundLine {
-  grid-column: 1 / -1;
-  -ms-grid-row: 3;
-  -ms-grid-row-span: 1;
-  grid-row: 3 / span 1;
-}
-
-.backgroundLine img {
-  height: 100%;
-  width: 100%;
-  position: relative;
-  top: 10px;
 }
 
 .characterOne {
@@ -936,7 +1097,7 @@ section .wrapper {
   padding: 10px 0;
 }
 
-.buttonFlex button p {
+.buttonFlex button p, .buttonFlex button span {
   font-size: 1.5rem;
   color: #fefefe;
   opacity: 0.7;
@@ -949,24 +1110,24 @@ section .wrapper {
           transform-origin: left;
 }
 
-.buttonFlex button p span {
+.buttonFlex button p span, .buttonFlex button span span {
   font-size: inherit;
   opacity: 1;
 }
 
-.buttonFlex button:hover p, .buttonFlex button:focus p {
+.buttonFlex button:hover p, .buttonFlex button:hover span, .buttonFlex button:focus p, .buttonFlex button:focus span {
   opacity: 1;
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
 
 @media (hover: none) {
-  .buttonFlex button p {
+  .buttonFlex button p, .buttonFlex button span {
     opacity: 1;
   }
 }
 
-/* Frame Three */
+/* Frame 3 */
 .placard {
   -ms-grid-column: 1;
   grid-column: 1;
@@ -1007,6 +1168,79 @@ section .wrapper {
   width: 100px;
   left: -25px;
   bottom: 25px;
+}
+
+/* Frame 5 */
+/* Interactive Panel in frame 7 and 8 */
+.panel img,
+.panelInteractable img {
+  width: 100%;
+  max-height: 200px;
+  max-width: 150px;
+}
+
+.panel {
+  margin-top: 50px;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2 / span 2;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  grid-row: 1 / span 2;
+}
+
+.panelInteractable {
+  margin-top: 50px;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2 / span 2;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  grid-row: 1 / span 2;
+  position: relative;
+}
+
+.panelInteractable img {
+  position: absolute;
+}
+
+.panelInteractable button {
+  position: absolute;
+  z-index: 5;
+  left: -10px;
+  top: 50px;
+}
+
+.panelInteractable button:hover, .panelInteractable button:focus {
+  height: 100px;
+  width: 100px;
+  left: -35px;
+  top: 25px;
+}
+
+@media (hover: none) {
+  .panelInteractable button {
+    height: 75px;
+    width: 75px;
+  }
+}
+
+/* Frame 7 */
+.frameSeven .panelInteractable img {
+  position: absolute;
+  left: 65px;
+}
+
+/* Frame 9 */
+.frameNine .door img {
+  height: 100%;
+}
+
+.leftDoor {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / span 2;
+  margin-left: 15px;
 }
 
 /* End Frame */
