@@ -429,6 +429,13 @@ h1 {
 /* Main Styles - header.scss */
 main {
   background-color: #0E0E0E;
+  height: 90vh;
+  overflow: hidden;
+}
+
+.frameHolder {
+  -webkit-transition: all 1s;
+  transition: all 1s;
 }
 
 button {
@@ -509,10 +516,10 @@ section .wrapper {
       grid-template-columns: repeat(5, 20%);
   -ms-grid-rows: (18vh)[5];
       grid-template-rows: repeat(5, 18vh);
+  min-height: 90vh;
   overflow: hidden;
   background-color: #fefefe;
   position: relative;
-  border-bottom: 10px solid #0E0E0E;
   opacity: 1;
   -webkit-transition: all 1s;
   transition: all 1s;
@@ -575,7 +582,6 @@ section .wrapper {
       grid-template-columns: repeat(5, 20%);
   -ms-grid-rows: (18vh)[5];
       grid-template-rows: repeat(5, 18vh);
-  border-bottom: 10px solid #0E0E0E;
 }
 
 .tutorial h2 {

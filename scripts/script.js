@@ -39,7 +39,8 @@ horrorGame.changeFrame = (n) => {
     .find('.closedEye').addClass('hideFrame');
   
   //Scroll the html/body to the top of the next frame
-  $('HTML, body').animate({scrollTop: $(horrorGame.frames[n]).offset().top - 30}, 1000);
+  // $('HTML, body').animate({scrollTop: $(horrorGame.frames[n]).offset().top - 30}, 1000);
+  $('#frameHolder').css({transform: `translateY(calc(${n*-90}vh))`});
   //Update the current frame
   horrorGame.currentFrame = n;
 }

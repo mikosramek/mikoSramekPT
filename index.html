@@ -14,341 +14,343 @@
       <h1>title</h1>
     </div> <!-- End of Wrapper -->
   </header>
-  <main id="frameHolder">
+  <main>
 
-    <!-- Start of Frame One Section -->
-    <section class="frameOne">
-      <!-- Start of Wrapper -->
-      <div class="wrapper">
-
-        <!-- Start of Tutorial Div -->
-        <div class="tutorial" id="tutorial">
-          <h2>How to play</h2>
-          <!-- Start of Instructions List -->
-          <ul>
-            <li>Use your mouse to interact with things in the scenes.</li>
-            <li>Black circles mark interaction points.</li>
-            <li>Your decision will change the outcome of the story.</li>
-            <li>Choose wisely. :)</li>
-          </ul> <!-- End of Instructions List -->
-          <!-- Start of Arrow Div -->
-          <div class="tutorialArrow">
-            <img src="./assets/arrow.svg" alt="">
-          </div> <!-- End of Arrow Div -->
-          <!-- Start of Close Tutorial Button Div -->
-          <div class="buttonDiv">
-            <button id="tutorialClose">
-              <span>(start)</span>
-            </button>
-          </div> <!-- End of Close Tutorial Button Div -->
-        </div> <!-- End of Tutorial Div -->
-
-        <!-- Start of Eye Div -->
-        <div class="closedEye">
-          <img src="./assets/eye/eye0.png" alt="">
-        </div> <!-- End of Eye Div -->
-
-        <!-- Start of Window Div -->
-        <div class="window">
-
-          <!-- Start of Background Line Div -->
-          <div class="backgroundLine background">
-            <img src="./assets/wallLine.png" alt="">
-          </div> <!-- End of Background Line Div -->
-
-         
-
-          <!-- Start of Character Div -->
-          <div href="#" class="characterOne foreground" id="characterOne">
-            <img src="./assets/priest.png" alt="">
-            <button>
-              <span>(talk)</span>
-            </button>
-          </div> <!-- End of Character Div -->
-
-          <!-- Start of Mushroom Div -->
-          <div class="shrooms midground">  
-            <button id="shrooms">
-              <span>(touch)</span>
-            </button>
-            <img src="./assets/shrooms.png" alt="">
-          </div> <!-- End of Mushroom Div -->
-
-        </div> <!-- End of Window Div -->
-
-      </div> <!-- End of Wrapper -->
-    </section> <!-- End of Frame One Section -->
-
-    <!-- Start of Frame Two Section -->
-    <section class="frameTwo">
-
-      <!-- Start of Wrapper -->
-      <div class="wrapper">
-
-        <!-- Start of Eye Div -->
-        <div class="closedEye">
-          <img src="./assets/eye/eye0.png" alt="">
-        </div> <!-- End of Eye Div -->
-
-        <!-- Start of Window Div -->
-        <div class="window hideFrame">
-          <!-- Start of Conversation Div -->
-          <div class="conversationBox">
-            <h2 class="name" id="npcName"></h2>
-            <p class="text" id="npcText"></p>
-            <!-- Start of Response Button Flex List -->
-            <ul class="buttonFlex" id="responseList">
-
-              <!-- Response Buttons are generated in here! -->
-
-            </ul> <!-- End of Response Button Flex List -->
+    <div class="frameHolder" id="frameHolder">
+      <!-- Start of Frame One Section -->
+      <section class="frameOne">
+        <!-- Start of Wrapper -->
+        <div class="wrapper">
+  
+          <!-- Start of Tutorial Div -->
+          <div class="tutorial" id="tutorial">
+            <h2>How to play</h2>
+            <!-- Start of Instructions List -->
+            <ul>
+              <li>Use your mouse to interact with things in the scenes.</li>
+              <li>Black circles mark interaction points.</li>
+              <li>Your decision will change the outcome of the story.</li>
+              <li>Choose wisely. :)</li>
+            </ul> <!-- End of Instructions List -->
+            <!-- Start of Arrow Div -->
+            <div class="tutorialArrow">
+              <img src="./assets/arrow.svg" alt="">
+            </div> <!-- End of Arrow Div -->
+            <!-- Start of Close Tutorial Button Div -->
+            <div class="buttonDiv">
+              <button id="tutorialClose">
+                <span>(start)</span>
+              </button>
+            </div> <!-- End of Close Tutorial Button Div -->
+          </div> <!-- End of Tutorial Div -->
+  
+          <!-- Start of Eye Div -->
+          <div class="closedEye">
+            <img src="./assets/eye/eye0.png" alt="">
+          </div> <!-- End of Eye Div -->
+  
+          <!-- Start of Window Div -->
+          <div class="window">
+  
+            <!-- Start of Background Line Div -->
+            <div class="backgroundLine background">
+              <img src="./assets/wallLine.png" alt="">
+            </div> <!-- End of Background Line Div -->
+  
+           
+  
+            <!-- Start of Character Div -->
+            <div href="#" class="characterOne foreground" id="characterOne">
+              <img src="./assets/priest.png" alt="">
+              <button>
+                <span>(talk)</span>
+              </button>
+            </div> <!-- End of Character Div -->
+  
+            <!-- Start of Mushroom Div -->
+            <div class="shrooms midground">  
+              <button id="shrooms">
+                <span>(touch)</span>
+              </button>
+              <img src="./assets/shrooms.png" alt="">
+            </div> <!-- End of Mushroom Div -->
+  
+          </div> <!-- End of Window Div -->
+  
+        </div> <!-- End of Wrapper -->
+      </section> <!-- End of Frame One Section -->
+  
+      <!-- Start of Frame Two Section -->
+      <section class="frameTwo">
+  
+        <!-- Start of Wrapper -->
+        <div class="wrapper">
+  
+          <!-- Start of Eye Div -->
+          <div class="closedEye">
+            <img src="./assets/eye/eye0.png" alt="">
+          </div> <!-- End of Eye Div -->
+  
+          <!-- Start of Window Div -->
+          <div class="window hideFrame">
+            <!-- Start of Conversation Div -->
+            <div class="conversationBox">
+              <h2 class="name" id="npcName"></h2>
+              <p class="text" id="npcText"></p>
+              <!-- Start of Response Button Flex List -->
+              <ul class="buttonFlex" id="responseList">
+  
+                <!-- Response Buttons are generated in here! -->
+  
+              </ul> <!-- End of Response Button Flex List -->
+              <!-- Start of Button Div -->
+              <div class="leaveButton">
+                <button id="leaveConversationButton">
+                  <span>(leave)</span>
+                </button>
+              </div> <!-- End of Button Div -->
+            </div> <!-- End of Conversation Box Div -->
+            <!-- Start of Portrait Div -->
+            <div class="portrait">
+              <img src="./assets/priestPortrait.png" alt="" id="npcPortrait">
+            </div> <!-- End of Portrait Div -->
+          </div> <!-- End of Window Div -->
+  
+        </div> <!-- End of Wrapper -->
+      </section> <!-- End of Frame Two Section -->
+  
+      <!-- Start of Frame Three Section -->
+      <section class="frameThree">
+        
+        <!-- Start of Wrapper -->
+          <div class="wrapper">
+  
+            <!-- Start of Eye Div -->
+              <div class="closedEye">
+                <img src="./assets/eye/eye0.png" alt="">
+              </div> <!-- End of Eye Div -->
+  
+              <!-- Start of Window Div -->
+              <div class="window hideFrame"> 
+  
+                <!-- Start of Background Line Div -->
+                <div class="backgroundLine background">
+                  <img src="./assets/wallLine.png" alt="">
+                </div> <!-- End of Background Line Div -->
+  
+                <!-- Start of Placard Div -->
+                <div class="placard foreground">
+                  <img src="./assets/placard.png" alt="">
+                </div> <!-- End of Placard Div -->
+                <!-- Start of Key Div -->
+                <div class="key midground">
+                  <img src="./assets/key.png" alt="">
+                </div> <!-- End of Key Div -->
+                <!-- Start of Skull Div -->
+                <div class="skull foreground" id="skull">
+                  <button>
+                    <span>(talk)</span>
+                  </button>
+                  <img src="./assets/skull.png" alt="">
+                </div> <!-- End of Skull Div -->
+              </div> <!-- End of Window Div -->
+  
+            </div> <!-- End of Wrapper -->
+      </section> <!-- End of Frame Three Section -->
+  
+      <!-- Start of Frame Four Section -->
+      <section class="frameFour">
+        
+        <!-- Start of Wrapper -->
+          <div class="wrapper">
+  
+            <!-- Start of Eye Div -->
+              <div class="closedEye">
+                <img src="./assets/eye/eye0.png" alt="">
+              </div> <!-- End of Eye Div -->
+  
+              <!-- Start of Window Div -->
+              <div class="window hideFrame"> 
+  
+              </div> <!-- End of Window Div -->
+  
+            </div> <!-- End of Wrapper -->
+      </section> <!-- End of Frame Four Section -->
+  
+      <!-- Start of Frame Five Section -->
+      <section class="frameFive">
+        
+        <!-- Start of Wrapper -->
+          <div class="wrapper">
+  
+            <!-- Start of Eye Div -->
+              <div class="closedEye">
+                <img src="./assets/eye/eye0.png" alt="">
+              </div> <!-- End of Eye Div -->
+  
+              <!-- Start of Window Div -->
+              <div class="window hideFrame"> 
+  
+              </div> <!-- End of Window Div -->
+  
+            </div> <!-- End of Wrapper -->
+      </section> <!-- End of Frame Five Section -->
+  
+      <!-- Start of Frame Six Section -->
+      <section class="frameSix">
+        
+        <!-- Start of Wrapper -->
+          <div class="wrapper">
+  
+            <!-- Start of Eye Div -->
+              <div class="closedEye">
+                <img src="./assets/eye/eye0.png" alt="">
+              </div> <!-- End of Eye Div -->
+  
+              <!-- Start of Window Div -->
+              <div class="window hideFrame"> 
+  
+              </div> <!-- End of Window Div -->
+  
+            </div> <!-- End of Wrapper -->
+      </section> <!-- End of Frame Six Section -->
+      
+      <!-- Start of Frame Seven Section -->
+      <section class="frameSeven">
+        
+        <!-- Start of Wrapper -->
+          <div class="wrapper">
+  
+            <!-- Start of Eye Div -->
+              <div class="closedEye">
+                <img src="./assets/eye/eye0.png" alt="">
+              </div> <!-- End of Eye Div -->
+  
+              <!-- Start of Window Div -->
+              <div class="window hideFrame"> 
+                
+                <!-- Start of Background Line Div -->
+                <div class="backgroundLine background">
+                  <img src="./assets/wallLine.png" alt="">
+                </div> <!-- End of Background Line Div -->
+                
+                <!-- Start of Panel Div -->
+                <div class="panel midground">
+                  <img src="./assets/panel.png" alt="">
+                </div> <!-- End of Panel Div -->
+  
+                <!-- Start of Interactable Div -->
+                <div class="panelInteractable midground">
+                  <img src="./assets/lever.png" alt="" id="lever">
+                </div> <!-- End of Interactable Div -->
+  
+              </div> <!-- End of Window Div -->
+  
+            </div> <!-- End of Wrapper -->
+      </section> <!-- End of Frame Seven Section -->
+      
+      <!-- Start of Frame Eight Section -->
+      <section class="frameEight">
+        
+        <!-- Start of Wrapper -->
+          <div class="wrapper">
+  
+            <!-- Start of Eye Div -->
+              <div class="closedEye">
+                <img src="./assets/eye/eye0.png" alt="">
+              </div> <!-- End of Eye Div -->
+  
+              <!-- Start of Window Div -->
+              <div class="window hideFrame"> 
+  
+                <!-- Start of Background Line Div -->
+                <div class="backgroundLine background">
+                  <img src="./assets/wallLine.png" alt="">
+                </div> <!-- End of Background Line Div -->
+  
+                <!-- Start of Panel Div -->
+                <div class="panel midground">
+                  <img src="./assets/panel.png" alt="">
+                </div> <!-- End of Panel Div -->
+  
+                <!-- Start of Interactable Div -->
+                <div class="panelInteractable midground">
+                  <img src="./assets/buttonBase.png" alt="" class="buttonBase">
+                  <img src="./assets/buttonTop.png" alt="" class="buttonTop" id="buttonTop">
+                </div> <!-- End of Interactable Div -->
+  
+              </div> <!-- End of Window Div -->
+  
+            </div> <!-- End of Wrapper -->
+      </section> <!-- End of Frame Eight Section -->
+      
+      <!-- Start of Frame Nine Section -->
+      <section class="frameNine">
+        
+        <!-- Start of Wrapper -->
+          <div class="wrapper">
+  
+            <!-- Start of Eye Div -->
+              <div class="closedEye">
+                <img src="./assets/eye/eye0.png" alt="">
+              </div> <!-- End of Eye Div -->
+  
+              <!-- Start of Window Div -->
+              <div class="window hideFrame"> 
+  
+              </div> <!-- End of Window Div -->
+  
+            </div> <!-- End of Wrapper -->
+      </section> <!-- End of Frame Nine Section -->
+      
+      <!-- Start of Frame Ten Section -->
+      <section class="frameTen">
+        
+        <!-- Start of Wrapper -->
+          <div class="wrapper">
+  
+            <!-- Start of Eye Div -->
+              <div class="closedEye">
+                <img src="./assets/eye/eye0.png" alt="">
+              </div> <!-- End of Eye Div -->
+  
+              <!-- Start of Window Div -->
+              <div class="window hideFrame"> 
+  
+              </div> <!-- End of Window Div -->
+  
+            </div> <!-- End of Wrapper -->
+      </section> <!-- End of Frame Ten Section -->
+  
+      <!-- Start of End Frame Section -->
+      <section class="endFrame">
+  
+        <!-- Start of Wrapper -->
+        <div class="wrapper">
+  
+          <!-- Start of Eye Div -->
+          <div class="closedEye">
+            <img src="./assets/eye/eye0.png" alt="">
+          </div> <!-- End of Eye Div -->
+  
+          <!-- Start of Window Div -->
+          <div class="window hideFrame"> 
+            <!-- Start of Ending Icon Div -->
+            <div class="endingIcon" id="endingDiv">
+              <img src="" alt="">
+              <h3></h3>
+            </div> <!-- End of Ening Icon Div -->
             <!-- Start of Button Div -->
-            <div class="leaveButton">
-              <button id="leaveConversationButton">
-                <span>(leave)</span>
+            <div class="buttonDiv">
+              <button id="retryButton">
+                <span>(retry)</span>
               </button>
             </div> <!-- End of Button Div -->
-          </div> <!-- End of Conversation Box Div -->
-          <!-- Start of Portrait Div -->
-          <div class="portrait">
-            <img src="./assets/priestPortrait.png" alt="" id="npcPortrait">
-          </div> <!-- End of Portrait Div -->
-        </div> <!-- End of Window Div -->
-
-      </div> <!-- End of Wrapper -->
-    </section> <!-- End of Frame Two Section -->
-
-    <!-- Start of Frame Three Section -->
-    <section class="frameThree">
-      
-      <!-- Start of Wrapper -->
-        <div class="wrapper">
-
-          <!-- Start of Eye Div -->
-            <div class="closedEye">
-              <img src="./assets/eye/eye0.png" alt="">
-            </div> <!-- End of Eye Div -->
-
-            <!-- Start of Window Div -->
-            <div class="window hideFrame"> 
-
-              <!-- Start of Background Line Div -->
-              <div class="backgroundLine background">
-                <img src="./assets/wallLine.png" alt="">
-              </div> <!-- End of Background Line Div -->
-
-              <!-- Start of Placard Div -->
-              <div class="placard foreground">
-                <img src="./assets/placard.png" alt="">
-              </div> <!-- End of Placard Div -->
-              <!-- Start of Key Div -->
-              <div class="key midground">
-                <img src="./assets/key.png" alt="">
-              </div> <!-- End of Key Div -->
-              <!-- Start of Skull Div -->
-              <div class="skull foreground" id="skull">
-                <button>
-                  <span>(talk)</span>
-                </button>
-                <img src="./assets/skull.png" alt="">
-              </div> <!-- End of Skull Div -->
-            </div> <!-- End of Window Div -->
-
-          </div> <!-- End of Wrapper -->
-    </section> <!-- End of Frame Three Section -->
-
-    <!-- Start of Frame Four Section -->
-    <section class="frameFour">
-      
-      <!-- Start of Wrapper -->
-        <div class="wrapper">
-
-          <!-- Start of Eye Div -->
-            <div class="closedEye">
-              <img src="./assets/eye/eye0.png" alt="">
-            </div> <!-- End of Eye Div -->
-
-            <!-- Start of Window Div -->
-            <div class="window hideFrame"> 
-
-            </div> <!-- End of Window Div -->
-
-          </div> <!-- End of Wrapper -->
-    </section> <!-- End of Frame Four Section -->
-
-    <!-- Start of Frame Five Section -->
-    <section class="frameFive">
-      
-      <!-- Start of Wrapper -->
-        <div class="wrapper">
-
-          <!-- Start of Eye Div -->
-            <div class="closedEye">
-              <img src="./assets/eye/eye0.png" alt="">
-            </div> <!-- End of Eye Div -->
-
-            <!-- Start of Window Div -->
-            <div class="window hideFrame"> 
-
-            </div> <!-- End of Window Div -->
-
-          </div> <!-- End of Wrapper -->
-    </section> <!-- End of Frame Five Section -->
-
-    <!-- Start of Frame Six Section -->
-    <section class="frameSix">
-      
-      <!-- Start of Wrapper -->
-        <div class="wrapper">
-
-          <!-- Start of Eye Div -->
-            <div class="closedEye">
-              <img src="./assets/eye/eye0.png" alt="">
-            </div> <!-- End of Eye Div -->
-
-            <!-- Start of Window Div -->
-            <div class="window hideFrame"> 
-
-            </div> <!-- End of Window Div -->
-
-          </div> <!-- End of Wrapper -->
-    </section> <!-- End of Frame Six Section -->
-    
-    <!-- Start of Frame Seven Section -->
-    <section class="frameSeven">
-      
-      <!-- Start of Wrapper -->
-        <div class="wrapper">
-
-          <!-- Start of Eye Div -->
-            <div class="closedEye">
-              <img src="./assets/eye/eye0.png" alt="">
-            </div> <!-- End of Eye Div -->
-
-            <!-- Start of Window Div -->
-            <div class="window hideFrame"> 
-              
-              <!-- Start of Background Line Div -->
-              <div class="backgroundLine background">
-                <img src="./assets/wallLine.png" alt="">
-              </div> <!-- End of Background Line Div -->
-              
-              <!-- Start of Panel Div -->
-              <div class="panel midground">
-                <img src="./assets/panel.png" alt="">
-              </div> <!-- End of Panel Div -->
-
-              <!-- Start of Interactable Div -->
-              <div class="panelInteractable midground">
-                <img src="./assets/lever.png" alt="" id="lever">
-              </div> <!-- End of Interactable Div -->
-
-            </div> <!-- End of Window Div -->
-
-          </div> <!-- End of Wrapper -->
-    </section> <!-- End of Frame Seven Section -->
-    
-    <!-- Start of Frame Eight Section -->
-    <section class="frameEight">
-      
-      <!-- Start of Wrapper -->
-        <div class="wrapper">
-
-          <!-- Start of Eye Div -->
-            <div class="closedEye">
-              <img src="./assets/eye/eye0.png" alt="">
-            </div> <!-- End of Eye Div -->
-
-            <!-- Start of Window Div -->
-            <div class="window hideFrame"> 
-
-              <!-- Start of Background Line Div -->
-              <div class="backgroundLine background">
-                <img src="./assets/wallLine.png" alt="">
-              </div> <!-- End of Background Line Div -->
-
-              <!-- Start of Panel Div -->
-              <div class="panel midground">
-                <img src="./assets/panel.png" alt="">
-              </div> <!-- End of Panel Div -->
-
-              <!-- Start of Interactable Div -->
-              <div class="panelInteractable midground">
-                <img src="./assets/buttonBase.png" alt="" class="buttonBase">
-                <img src="./assets/buttonTop.png" alt="" class="buttonTop" id="buttonTop">
-              </div> <!-- End of Interactable Div -->
-
-            </div> <!-- End of Window Div -->
-
-          </div> <!-- End of Wrapper -->
-    </section> <!-- End of Frame Eight Section -->
-    
-    <!-- Start of Frame Nine Section -->
-    <section class="frameNine">
-      
-      <!-- Start of Wrapper -->
-        <div class="wrapper">
-
-          <!-- Start of Eye Div -->
-            <div class="closedEye">
-              <img src="./assets/eye/eye0.png" alt="">
-            </div> <!-- End of Eye Div -->
-
-            <!-- Start of Window Div -->
-            <div class="window hideFrame"> 
-
-            </div> <!-- End of Window Div -->
-
-          </div> <!-- End of Wrapper -->
-    </section> <!-- End of Frame Nine Section -->
-    
-    <!-- Start of Frame Ten Section -->
-    <section class="frameTen">
-      
-      <!-- Start of Wrapper -->
-        <div class="wrapper">
-
-          <!-- Start of Eye Div -->
-            <div class="closedEye">
-              <img src="./assets/eye/eye0.png" alt="">
-            </div> <!-- End of Eye Div -->
-
-            <!-- Start of Window Div -->
-            <div class="window hideFrame"> 
-
-            </div> <!-- End of Window Div -->
-
-          </div> <!-- End of Wrapper -->
-    </section> <!-- End of Frame Ten Section -->
-
-    <!-- Start of End Frame Section -->
-    <section class="endFrame">
-
-      <!-- Start of Wrapper -->
-      <div class="wrapper">
-
-        <!-- Start of Eye Div -->
-        <div class="closedEye">
-          <img src="./assets/eye/eye0.png" alt="">
-        </div> <!-- End of Eye Div -->
-
-        <!-- Start of Window Div -->
-        <div class="window hideFrame"> 
-          <!-- Start of Ending Icon Div -->
-          <div class="endingIcon" id="endingDiv">
-            <img src="" alt="">
-            <h3></h3>
-          </div> <!-- End of Ening Icon Div -->
-          <!-- Start of Button Div -->
-          <div class="buttonDiv">
-            <button id="retryButton">
-              <span>(retry)</span>
-            </button>
-          </div> <!-- End of Button Div -->
-        </div> <!-- End of Window Div -->
-
-      </div> <!-- End of Wrapper -->
-    </section> <!-- End of Frame Three Section -->
+          </div> <!-- End of Window Div -->
+  
+        </div> <!-- End of Wrapper -->
+      </section> <!-- End of Frame Three Section -->
+    </div> <!-- End of Frame Holder Div -->
   </main>
   <footer>
     <!-- Start of Wrapper -->
