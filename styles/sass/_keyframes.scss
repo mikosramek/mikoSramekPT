@@ -30,3 +30,12 @@
     transform: rotate(0);
   }
 }
+
+@keyframes wigglyText {
+  0%{
+    top: -5px;
+  }
+  100% {
+    top: 5px;
+  }
+}

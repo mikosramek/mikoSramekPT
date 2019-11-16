@@ -14,13 +14,12 @@ button {
   padding:0;
   border: 1px solid $primaryAccent;
   span {
-    font-size: 20px;
+    font-size: 2rem;
     opacity: 0;
     transition: opacity 0.5s;
     margin: 0;
   }
-  &:hover,
-  &:focus {
+  @include target {
     cursor: url('../assets/handActive.svg') 15 15, auto;
     span {
       opacity: 1;
@@ -31,8 +30,8 @@ button {
   }
   //This needs to be overwritten for buttons that need to be shifted
   @media(hover:none) {
-    height: 100px;
-    width: 100px;
+    height: $buttonNoHoverSize;
+    width: $buttonNoHoverSize;
   }
   @media(hover:none) {
     span {
@@ -142,14 +141,13 @@ section .wrapper{
   }
   button {
     position: absolute;
-    &:hover,
-    &:focus {
-      height:100px;
-      width:100px;
+    @include target {
+      height:$buttonHoverSize;
+      width:$buttonHoverSize;
     }
     @media(hover:none) {
-      height: 100px;
-      width: 100px;
+      height: $buttonNoHoverSize;
+      width: $buttonNoHoverSize;
     }
   }
   .buttonDiv {
@@ -196,16 +194,15 @@ section .wrapper{
     top: 100px; 
     left: 50px;
   
-    &:hover,
-    &:focus {
+    @include target {
       top: 75px;
       left: 25px;
-      height:100px;
-      width:100px;
+      height:$buttonHoverSize;
+      width:$buttonHoverSize;
     }
     @media(hover:none) {
-      height: 100px;
-      width: 100px;
+      height: $buttonNoHoverSize;
+      width: $buttonNoHoverSize;
     }
   }
 }
@@ -227,14 +224,16 @@ section .wrapper{
     position: absolute;
     top:75px;
     left:0;
-    &:hover,
-    &:focus {
+    @include target {
       top: 50px;
       left: -25px;
-      height:100px;
-      width:100px;
+      height:$buttonHoverSize;
+      width:$buttonHoverSize;
     }
-   
+    @media(hover:none) {
+      height: $buttonNoHoverSize;
+      width: $buttonNoHoverSize;
+    }
   }
 }
 
@@ -298,6 +297,7 @@ section .wrapper{
     margin: 0;
     padding-bottom: 10px;
   } 
+
 }
 .leaveButton {
   z-index: 10;
@@ -311,16 +311,15 @@ section .wrapper{
     position: absolute;
     right: -50px;
     bottom: 0px;
-    &:hover,
-    &:focus {
+    @include target {
       right: -75px;
       bottom: -25px;
-      height: 100px;
-      width: 100px;
+      height: $buttonHoverSize;
+      width: $buttonHoverSize;
     }
     @media(hover:none) {
-      height: 100px;
-      width: 100px;
+      height: $buttonNoHoverSize;
+      width: $buttonNoHoverSize;
       left: 0px;
       bottom: -20px;
     }
@@ -353,11 +352,14 @@ section .wrapper{
       margin: 0;
       transition: all 0.5s;
       transform-origin: left;
-
+      span {
+        font-size: inherit;
+        opacity: 1;
+      }
     }
+    
   
-    &:hover,
-    &:focus {
+    @include target {
       p {
         opacity: 1;
         transform: scale((1.1));
@@ -383,9 +385,24 @@ section .wrapper{
 }
 
 .skull {
-  grid-column: 3;
-  grid-row: 2;
-  z-index: 1;
+  grid-column: 4;
+  grid-row: 3 / span 2;
+  position: relative;
+  img {
+    transform: scaleX(-1);
+  }
+  button {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    bottom: 50px;
+    @include target {
+      height: $buttonHoverSize;
+      width: $buttonHoverSize;
+      left: -$buttonHoverSize/4;
+      bottom: 50px - $buttonHoverSize/4;
+    }
+  }
 }
 
 /* End Frame */
@@ -403,13 +420,12 @@ section .wrapper{
 }
 .endFrame button {
   position: absolute;
-  &:hover,
-  &:focus {
-    height: 100px;
-    width: 100px;
+  @include target {
+    height: $buttonHoverSize;
+    width: $buttonHoverSize;
   }
-  @media(hover:none) {
-    height: 100px;
-    width:100px;
+  @include noHover {
+    height: $buttonNoHoverSize;
+    width: $buttonNoHoverSize;
   }
 }

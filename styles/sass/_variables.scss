@@ -16,6 +16,10 @@ $translucentBlack: transparentize($primaryBlack, 0.4);
 $fontSerif: serif;  
 $fontSansSerif: sans-serif;
 
-$firstBreak: 900px;
+$firstBreak: 1080px;
 $secondBreak: 650px;
 $thirdBreak: 400px;
+
+
+$buttonHoverSize: 100px;
+$buttonNoHoverSize: 75px;

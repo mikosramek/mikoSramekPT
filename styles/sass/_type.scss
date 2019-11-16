@@ -5,3 +5,19 @@
 html {
     font-size: 62.5%;
 }
+
+
+.italic {
+    font-style: italic;
+}
+
+.bold {
+    font-weight: bold;
+}
+.uppercase {
+    text-transform: uppercase;
+}
+.wiggly {
+    position: relative;
+    animation: wigglyText 1s infinite ease-in-out alternate-reverse;
+}

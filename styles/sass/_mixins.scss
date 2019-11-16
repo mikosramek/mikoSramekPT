@@ -3,3 +3,14 @@
 		@content;
 	}
 }
+@mixin target()  {
+	&:hover,
+	&:focus {
+		@content;
+	}
+}
+@mixin noHover() {
+	@media(hover:none) {
+		@content;
+	}
+}
