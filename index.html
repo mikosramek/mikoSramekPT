@@ -15,7 +15,7 @@
       <h1>title</h1>
     
       <!-- This button shows the nav in main (in script.js) -->
-      <button class="menuButton" id="menuButton">
+      <button class="expandingButton menuButton " id="menuButton">
         <i class='fas fa-bars'></i>
       </button>
     </div> <!-- End of Wrapper -->
@@ -24,6 +24,7 @@
     
     <div class="wrapper">
       <nav class="clearfix hiddenNav" id="mainNav">
+        <button class="resetButton" id="resetButton">reset</button>
         <ul class="buttonFlex mainNav" id="navUl">
           <!-- Buttons are generated in here by script.js! -->
         </ul>
@@ -53,7 +54,7 @@
             </div> <!-- End of Arrow Div -->
             <!-- Start of Close Tutorial Button Div -->
             <div class="buttonDiv">
-              <button id="tutorialClose">
+              <button class="expandingButton" id="tutorialClose">
                 <span>(start)</span>
               </button>
             </div> <!-- End of Close Tutorial Button Div -->
@@ -77,14 +78,14 @@
             <!-- Start of Character Div -->
             <div href="#" class="characterOne foreground" id="characterOne">
               <img src="./assets/priest.png" alt="">
-              <button>
+              <button class="expandingButton" >
                 <span>(talk)</span>
               </button>
             </div> <!-- End of Character Div -->
   
             <!-- Start of Mushroom Div -->
             <div class="shrooms midground">  
-              <button id="shrooms">
+              <button class="expandingButton" id="shrooms">
                 <span>(touch)</span>
               </button>
               <img src="./assets/shrooms.png" alt="">
@@ -120,7 +121,7 @@
               </ul> <!-- End of Response Button Flex List -->
               <!-- Start of Button Div -->
               <div class="leaveButton">
-                <button id="leaveConversationButton">
+                <button class="expandingButton"  id="leaveConversationButton">
                   <span>(leave)</span>
                 </button>
               </div> <!-- End of Button Div -->
@@ -163,7 +164,7 @@
                 </div> <!-- End of Key Div -->
                 <!-- Start of Skull Div -->
                 <div class="skull foreground" id="skull">
-                  <button>
+                  <button class="expandingButton">
                     <span>(talk)</span>
                   </button>
                   <img src="./assets/skull.png" alt="">
@@ -212,7 +213,7 @@
                 </div> <!-- End of Background Line Div -->
                  <!-- Start of Door Div -->
                 <div class="door foreground" id="doorFive">
-                  <button>
+                  <button class="expandingButton">
                     <span>(go)</span>
                   </button>
                   <img src="./assets/door.png" alt="">
@@ -268,7 +269,7 @@
   
                 <!-- Start of Interactable Div -->
                 <div class="panelInteractable midground" id="doorSevenButton">
-                  <button>
+                  <button class="expandingButton">
                     <span>(pull)</span>
                   </button>
                   <img src="./assets/lever.png" alt="" id="lever">
@@ -306,7 +307,7 @@
                 <!-- Start of Interactable Div -->
                 <div class="panelInteractable midground" id="doorEightButton">
                   <img src="./assets/buttonBase.png" alt="" class="buttonBase">
-                  <button>
+                  <button class="expandingButton">
                     <span>(press)</span>
                   </button>
                   <img src="./assets/buttonTop.png" alt="" class="buttonTop" id="buttonTop">
@@ -330,7 +331,6 @@
   
               <!-- Start of Window Div -->
               <div class="window hideFrame"> 
-                <h2>frame 9</h2>
                 <!-- Start of Background Line Div -->
                 <div class="backgroundLine background">
                   <img src="./assets/wallLine.png" alt="">
@@ -338,18 +338,18 @@
 
                 <!-- Start of Door Div -->
                 <div class="door leftDoor foreground" id="doorNineB">
-                  <button>
+                  <button class="expandingButton">
                     <span>(go)</span>
                   </button>
-                  <img src="./assets/door.png" alt="">
+                  <img src="./assets/doorClosed.png" alt="">
                 </div> <!-- End of Door Div -->
 
                 <!-- Start of Door Div -->
                 <div class="door foreground" id="doorNineA">
-                  <button>
+                  <button class="expandingButton">
                     <span>(go)</span>
                   </button>
-                  <img src="./assets/door.png" alt="">
+                  <img src="./assets/doorClosed.png" alt="">
                 </div> <!-- End of Door Div -->
 
               </div> <!-- End of Window Div -->
@@ -377,7 +377,7 @@
             </div> <!-- End of Ening Icon Div -->
             <!-- Start of Button Div -->
             <div class="buttonDiv">
-              <button id="retryButton">
+              <button class="expandingButton" id="retryButton">
                 <span>(retry)</span>
               </button>
             </div> <!-- End of Button Div -->

@@ -53,6 +53,7 @@ horrorGame.bindEvents = () => {
     $('#buttonTop').on('animationend webkitTransitionEnd oTransitionEnd', function(){ 
       //show button for left door
       horrorGame.showObject('#doorNineB button');
+      $('#doorNineB img').attr('src', './assets/doorOpen.png');
       horrorGame.changeFrame(8);
     });
   });
@@ -61,7 +62,8 @@ horrorGame.bindEvents = () => {
     $('#lever').on('animationend webkitTransitionEnd oTransitionEnd', function(){ 
       //show button for right door
       horrorGame.showObject('#doorNineA button');
-      horrorGame.changeFrame(8);
+      $('#doorNineA img').attr('src', './assets/doorOpen.png');
+      horrorGame.changeFrame(8);     
     });
   });
 
@@ -75,6 +77,10 @@ horrorGame.bindEvents = () => {
   $('#menuButton').on('click', function(){
     horrorGame.navHolder.toggleClass('hiddenNav');
     $('#menuButton i').toggleClass('fa-bars fa-times');
+  });
+  $('#resetButton').on('click', function(){
+    horrorGame.toggleMenu();
+    horrorGame.start();
   });
   //Animations
     //thing that triggers the animation, thing that gets the animation, the animation class name
@@ -124,16 +130,23 @@ horrorGame.start = () => {
 }
 
 horrorGame.generateNav = () => {
+  //Make sure the ul is empty
   $(horrorGame.nav).empty();
+  //For each frame that exists, create a button that will change to it
+  //Also hide / update the menu button when you click
   for(let i = 0; i < horrorGame.frames.length; i++){
-    const navButton = $(`<li><button disabled><span>${i+1}</span></button></li>`);
+    const navButton = $(`<li><button disabled class="conversationButton"><span>${i+1}</span></button></li>`);
     $(horrorGame.nav).append(navButton);
     navButton.find('button').on('click', function(){
-      horrorGame.navHolder.toggleClass('hiddenNav');
-      $('#menuButton i').toggleClass('fa-bars fa-times');
+      horrorGame.toggleMenu();
       horrorGame.changeFrame(i);
     });
   }
+}
+
+horrorGame.toggleMenu = () => {
+  horrorGame.navHolder.toggleClass('hiddenNav');
+  $('#menuButton i').toggleClass('fa-bars fa-times');
 }
 
 horrorGame.setEndScreen = (text, imgUrl) => {
@@ -170,7 +183,7 @@ horrorGame.showDialogue = (conversationObject) => {
 //Bind the click event to the response's callback
 horrorGame.generateResponseButtons = (responses) => {
   for(let i = 0; i < responses.length; i++){
-    const newButton = $('<li><button></button></li>');
+    const newButton = $('<li><button class="conversationButton"></button></li>');
     $(newButton).appendTo(horrorGame.responseList)
       .find('button')
       .html(`<p>${responses[i].text}</p>`)
@@ -325,7 +338,7 @@ borisNpc = {
 //horrorGame.changeFrame(-1); horrorGame.setEndScreen('(you died)', './assets/deathIcon.svg');
 skullNpc = {
   name: 'Skull',
-  portraitURL: './assets/skull.png',
+  portraitURL: './assets/skullPortrait.png',
   currentIndex: 0,
   reset: function() { skullNpc.currentIndex = 0; },
   dialogue: [

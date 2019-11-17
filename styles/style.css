@@ -549,6 +549,11 @@ main .wrapper {
 button {
   background-color: #0E0E0E;
   color: #fefefe;
+  border: none;
+  cursor: url("../assets/handActive.svg") 15 15, auto;
+}
+
+.expandingButton {
   border-radius: 50%;
   -webkit-transition: all 1s;
   transition: all 1s;
@@ -558,7 +563,7 @@ button {
   border: 1px solid #0E0E0E;
 }
 
-button span {
+.expandingButton span {
   font-size: 2rem;
   opacity: 0;
   -webkit-transition: opacity 0.5s;
@@ -566,29 +571,29 @@ button span {
   margin: 0;
 }
 
-button:hover, button:focus {
+.expandingButton:hover, .expandingButton:focus {
   height: 100px;
   width: 100px;
   cursor: url("../assets/handActive.svg") 15 15, auto;
 }
 
-button:hover span, button:focus span {
+.expandingButton:hover span, .expandingButton:focus span {
   opacity: 1;
 }
 
-button:focus {
+.expandingButton:focus {
   outline: 2px dashed #EF414C;
 }
 
 @media (hover: none) {
-  button {
+  .expandingButton {
     height: 75px;
     width: 75px;
   }
 }
 
 @media (hover: none) {
-  button span {
+  .expandingButton span {
     opacity: 1;
   }
 }
@@ -1069,22 +1074,17 @@ nav button:disabled:hover span, nav button:disabled:focus span {
   margin-top: 0px;
 }
 
-.buttonFlex li {
-  height: 50%;
-}
-
-.buttonFlex button {
+.buttonFlex .conversationButton {
   z-index: 2;
   position: relative;
   top: 0;
   width: 100%;
-  height: calc(100% - 5px);
   border-radius: 25px;
   margin: 5px 0;
   padding: 10px 0;
 }
 
-.buttonFlex button p, .buttonFlex button span {
+.buttonFlex .conversationButton p, .buttonFlex .conversationButton span {
   font-size: 1.5rem;
   color: #fefefe;
   opacity: 0.7;
@@ -1097,19 +1097,17 @@ nav button:disabled:hover span, nav button:disabled:focus span {
           transform-origin: left;
 }
 
-.buttonFlex button p span, .buttonFlex button span span {
+.buttonFlex .conversationButton p span, .buttonFlex .conversationButton span span {
   font-size: inherit;
   opacity: 1;
 }
 
-.buttonFlex button:hover p, .buttonFlex button:hover span, .buttonFlex button:focus p, .buttonFlex button:focus span {
+.buttonFlex .conversationButton:hover p, .buttonFlex .conversationButton:hover span, .buttonFlex .conversationButton:focus p, .buttonFlex .conversationButton:focus span {
   opacity: 1;
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
 }
 
 @media (hover: none) {
-  .buttonFlex button p, .buttonFlex button span {
+  .buttonFlex .conversationButton p, .buttonFlex .conversationButton span {
     opacity: 1;
   }
 }
@@ -1246,6 +1244,27 @@ nav button:disabled:hover span, nav button:disabled:focus span {
 
 .endFrame button {
   position: absolute;
+}
+
+.resetButton {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  top: 60px;
+  right: 10px;
+  background-color: #0E0E0E;
+  border-radius: 25px;
+  font-size: 1.5rem;
+}
+
+.resetButton:hover, .resetButton:focus {
+  background-color: #EF414C;
+}
+
+@media (hover: none) {
+  .resetButton {
+    background-color: #EF414C;
+  }
 }
 
 /* Footer Styles - footer.scss */
