@@ -25,11 +25,18 @@ h1 {
   cursor: url('../assets/handActive.svg') 15 15, auto;
 
   font-size: 2rem;
+  i {
+    transition: all 0.5s;
+    transform: rotate(0deg);
+  }
   @include target {
     bottom: -50px;
     right: -15px;
     height:$buttonHoverSize;
     width:$buttonHoverSize;
+    i {
+      transform: rotate(90deg);
+    }
   }
   @media(hover:none) {
     height: $buttonNoHoverSize;

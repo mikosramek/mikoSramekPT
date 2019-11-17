@@ -33,7 +33,6 @@ button {
   &:focus {
     outline: 2px dashed $inputAccent;
   }
-  //This needs to be overwritten for buttons that need to be shifted
   @media(hover:none) {
     height: $buttonNoHoverSize;
     width: $buttonNoHoverSize;
@@ -53,26 +52,38 @@ nav {
   height: 90vh;
   width: 100%;
   background-color: $primaryWhite;
-  opacity: 1;
-  transition: all 0.3s;
   display: flex;
   flex-direction: column;
   align-items: center;
+  
+
   h2 {
     color: $primaryBlack;
     position: absolute;
     bottom: 90%;
     width: 50%;
   }
-  ul{
+  ul.mainNav{
     width: 50%;
-    position: absolute;
-    bottom: 10%;
+    height: 100%;
+    flex-wrap: wrap;
+    li {
+      height: auto;
+    }
+  }
+  button:disabled{
+    background-color: $primaryGrey;
+    opacity: 0.7;
+    @include target {
+      span {
+        opacity: 0.7;
+      }
+    }
   }
 }
 
 .hiddenNav {
-  height: 0;
+  display: none;
 }
 
 .frameHolder {
@@ -151,8 +162,8 @@ nav {
     top: 150px;
     left: 0;
     @include target {
-      height: $buttonHoverSize;
-      width: $buttonHoverSize;
+      // height: $buttonHoverSize;
+      // width: $buttonHoverSize;
       left: -$buttonHoverSize/4;
       top: 150px - $buttonHoverSize/4;
     }
@@ -207,12 +218,12 @@ nav {
   button {
     position: absolute;
     @include target {
-      height:$buttonHoverSize;
-      width:$buttonHoverSize;
+      // height:$buttonHoverSize;
+      // width:$buttonHoverSize;
     }
     @media(hover:none) {
-      height: $buttonNoHoverSize;
-      width: $buttonNoHoverSize;
+      // height: $buttonNoHoverSize;
+      // width: $buttonNoHoverSize;
     }
   }
   .buttonDiv {
@@ -248,12 +259,12 @@ nav {
     @include target {
       top: 75px;
       left: 25px;
-      height:$buttonHoverSize;
-      width:$buttonHoverSize;
+      // height:$buttonHoverSize;
+      // width:$buttonHoverSize;
     }
     @media(hover:none) {
-      height: $buttonNoHoverSize;
-      width: $buttonNoHoverSize;
+      // height: $buttonNoHoverSize;
+      // width: $buttonNoHoverSize;
     }
   }
 }
@@ -278,12 +289,12 @@ nav {
     @include target {
       top: 50px;
       left: -25px;
-      height:$buttonHoverSize;
-      width:$buttonHoverSize;
+      // height:$buttonHoverSize;
+      // width:$buttonHoverSize;
     }
     @media(hover:none) {
-      height: $buttonNoHoverSize;
-      width: $buttonNoHoverSize;
+      // height: $buttonNoHoverSize;
+      // width: $buttonNoHoverSize;
     }
   }
 }
@@ -365,12 +376,12 @@ nav {
     @include target {
       right: -75px;
       bottom: -25px;
-      height: $buttonHoverSize;
-      width: $buttonHoverSize;
+      // height: $buttonHoverSize;
+      // width: $buttonHoverSize;
     }
     @media(hover:none) {
-      height: $buttonNoHoverSize;
-      width: $buttonNoHoverSize;
+      // height: $buttonNoHoverSize;
+      // width: $buttonNoHoverSize;
       left: 0px;
       bottom: -20px;
     }
@@ -448,8 +459,8 @@ nav {
     left: 0;
     bottom: 50px;
     @include target {
-      height: $buttonHoverSize;
-      width: $buttonHoverSize;
+      // height: $buttonHoverSize;
+      // width: $buttonHoverSize;
       left: -$buttonHoverSize/4;
       bottom: 50px - $buttonHoverSize/4;
     }
@@ -490,14 +501,14 @@ nav {
     left: -10px;
     top: 50px;
     @include target {
-      height: $buttonHoverSize;
-      width: $buttonHoverSize;
+      // height: $buttonHoverSize;
+      // width: $buttonHoverSize;
       left: -10px -$buttonHoverSize/4;
       top: 50px - ($buttonHoverSize/4);
     }
     @include noHover {
-      height: $buttonNoHoverSize;
-      width: $buttonNoHoverSize;
+      // height: $buttonNoHoverSize;
+      // width: $buttonNoHoverSize;
     }
   }
 }
@@ -541,11 +552,11 @@ nav {
 .endFrame button {
   position: absolute;
   @include target {
-    height: $buttonHoverSize;
-    width: $buttonHoverSize;
+    // height: $buttonHoverSize;
+    // width: $buttonHoverSize;
   }
   @include noHover {
-    height: $buttonNoHoverSize;
-    width: $buttonNoHoverSize;
+    // height: $buttonNoHoverSize;
+    // width: $buttonNoHoverSize;
   }
 }

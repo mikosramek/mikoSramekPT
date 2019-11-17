@@ -1,14 +1,26 @@
 const horrorGame = {};
 
-
-
 horrorGame.init = () => {
-  horrorGame.bindEvents();
   horrorGame.findDomReferences();
+  horrorGame.bindEvents();
   horrorGame.start();
 }
 
-// Bind events here
+horrorGame.findDomReferences = () => {
+  horrorGame.frames = $('#frameHolder').children();
+
+  horrorGame.npcName = $('#npcName');
+  horrorGame.npcText = $('#npcText');
+  horrorGame.npcPortrait = $('#npcPortrait');
+
+  horrorGame.responseList = $('#responseList');
+
+  horrorGame.endingDiv = $('#endingDiv');
+
+  horrorGame.nav = $('#navUl');
+  horrorGame.navHolder = $('#mainNav');
+}
+
 horrorGame.bindEvents = () => {
   //Buttons
   $('#tutorialClose').on('click', function() {
@@ -61,7 +73,8 @@ horrorGame.bindEvents = () => {
   });
 
   $('#menuButton').on('click', function(){
-    $('#mainNav').toggleClass('hiddenNav');
+    horrorGame.navHolder.toggleClass('hiddenNav');
+    $('#menuButton i').toggleClass('fa-bars fa-times');
   });
   //Animations
     //thing that triggers the animation, thing that gets the animation, the animation class name
@@ -78,22 +91,6 @@ horrorGame.bindAnimation = (triggerElement, targetElement, animationClass) =>{
     $(this).removeClass(animationClass);
   });
 }
-
-horrorGame.findDomReferences = () => {
-  horrorGame.frames = $('#frameHolder').children();
-
-  horrorGame.npcName = $('#npcName');
-  horrorGame.npcText = $('#npcText');
-  horrorGame.npcPortrait = $('#npcPortrait');
-
-  horrorGame.responseList = $('#responseList');
-
-  horrorGame.endingDiv = $('#endingDiv');
-
-  horrorGame.nav = $('#navUl');
-}
-
-
 
 
 horrorGame.start = () => {
@@ -129,10 +126,12 @@ horrorGame.start = () => {
 horrorGame.generateNav = () => {
   $(horrorGame.nav).empty();
   for(let i = 0; i < horrorGame.frames.length; i++){
-    const navButton = $(`<li><button><span>${i}</span></button></li>`);
+    const navButton = $(`<li><button disabled><span>${i+1}</span></button></li>`);
     $(horrorGame.nav).append(navButton);
     navButton.find('button').on('click', function(){
-      console.log('a');
+      horrorGame.navHolder.toggleClass('hiddenNav');
+      $('#menuButton i').toggleClass('fa-bars fa-times');
+      horrorGame.changeFrame(i);
     });
   }
 }
@@ -215,6 +214,7 @@ horrorGame.changeFrame = (n) => {
     .find('.window').removeClass('hideFrame')
     .find('.closedEye').addClass('hideFrame');
   
+  $(horrorGame.nav.children()[n]).find('button').removeAttr('disabled');
   //Scroll the html/body to the top of the next frame
   // $('HTML, body').animate({scrollTop: $(horrorGame.frames[n]).offset().top - 30}, 1000);
   $('#frameHolder').css({transform: `translateY(calc(${n*-90}vh))`});
