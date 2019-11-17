@@ -765,15 +765,20 @@ nav button:disabled:hover span, nav button:disabled:focus span {
           justify-content: flex-end;
 }
 
+.door img {
+  max-width: 250px;
+  width: 100%;
+}
+
 .door button {
   position: absolute;
-  top: 150px;
+  bottom: 150px;
   left: 0;
 }
 
 .door button:hover, .door button:focus {
   left: -25px;
-  top: 125px;
+  bottom: 125px;
 }
 
 /* Frame 1 */

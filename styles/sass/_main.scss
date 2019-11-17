@@ -169,13 +169,17 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  img {
+    max-width: 250px;
+    width: 100%;
+  }
   button {
     position: absolute;
-    top: 150px;
+    bottom: 150px;
     left: 0;
     @include target {
       left: -$buttonHoverSize/4;
-      top: 150px - $buttonHoverSize/4;
+      bottom: 150px - $buttonHoverSize/4;
     }
   }
 }
