@@ -753,6 +753,16 @@ nav button:disabled:hover span, nav button:disabled:focus span {
   grid-row: 1 / span 3;
   position: relative;
   top: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .door button {
@@ -864,6 +874,26 @@ nav button:disabled:hover span, nav button:disabled:focus span {
   margin: 0 auto;
   width: 100%;
   height: 100%;
+}
+
+.mouseTutorial {
+  display: block;
+}
+
+@media (hover: none) {
+  .mouseTutorial {
+    display: none;
+  }
+}
+
+.touchTutorial {
+  display: none;
+}
+
+@media (hover: none) {
+  .touchTutorial {
+    display: block;
+  }
 }
 
 .characterOne {
@@ -1121,6 +1151,10 @@ nav button:disabled:hover span, nav button:disabled:focus span {
   opacity: 1;
 }
 
+.buttonFlex .conversationButton:focus {
+  outline: 2px dashed #EF414C;
+}
+
 .buttonFlex .conversationButton:hover p, .buttonFlex .conversationButton:hover span, .buttonFlex .conversationButton:focus p, .buttonFlex .conversationButton:focus span {
   opacity: 1;
   -webkit-transform: scale(1.05);
@@ -1206,13 +1240,13 @@ nav button:disabled:hover span, nav button:disabled:focus span {
 /* Frame 4 */
 .frameFour .door {
   -ms-grid-column: 2;
-  grid-column: 2;
+      grid-column-start: 2;
 }
 
 /* Frame 6 */
 .frameSix .door {
   -ms-grid-column: 3;
-  grid-column: 3;
+      grid-column-start: 3;
 }
 
 /* Interactive Panel in frame 7 and 8 */
@@ -1362,6 +1396,10 @@ nav button:disabled:hover span, nav button:disabled:focus span {
   background-color: #0E0E0E;
   border-radius: 25px;
   font-size: 1.5rem;
+}
+
+.resetButton:focus {
+  outline: 2px dashed #EF414C;
 }
 
 .resetButton:hover, .resetButton:focus {

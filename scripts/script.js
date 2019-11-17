@@ -141,7 +141,7 @@ horrorGame.start = () => {
     .find('.closedEye').removeClass('hideFrame');
   //Show things
   $('#placardText').text("Key for sale.");
-  horrorGame.showObject($('key'));
+  horrorGame.showObject($('#key'));
 
   //Make sure animations are off
   horrorGame.buttonTop.removeClass('buttonAnimation');

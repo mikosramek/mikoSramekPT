@@ -166,6 +166,9 @@ nav {
   grid-row: 1 / span 3;
   position: relative;
   top: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   button {
     position: absolute;
     top: 150px;
@@ -241,6 +244,19 @@ nav {
     height: 100%;
   }
 }
+.mouseTutorial {
+  display: block;
+  @media(hover:none) {
+    display: none;
+  }
+}
+.touchTutorial {
+  display: none;
+  @media(hover:none) {
+    display: block;
+  }
+}
+
 .characterOne {
   grid-column: 2 / span 1;
   grid-row: 2 / span 3;
@@ -417,7 +433,9 @@ nav {
         opacity: 1;
       }
     }
-    
+    &:focus {
+      outline: 2px dashed $inputAccent;
+    }
   
     @include target {
       p,span {
@@ -486,13 +504,13 @@ nav {
 /* Frame 4 */
 .frameFour {
   .door {
-    grid-column: 2;
+    grid-column-start: 2;
   }
 }
 /* Frame 6 */
 .frameSix {
   .door {
-    grid-column: 3;
+    grid-column-start: 3;
   }
 }
 
@@ -619,6 +637,9 @@ nav {
   background-color: $primaryAccent;
   border-radius: 25px;
   font-size: 1.5rem;
+  &:focus {
+    outline: 2px dashed $inputAccent;
+  }
   @include target {
     background-color: $inputAccent;
   }
