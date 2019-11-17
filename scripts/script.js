@@ -6,6 +6,7 @@ horrorGame.init = () => {
   horrorGame.start();
 }
 
+//If a dom element is used more than once, it should be defined as a variable in here
 horrorGame.findDomReferences = () => {
   horrorGame.frames = $('#frameHolder').children();
 
@@ -19,6 +20,13 @@ horrorGame.findDomReferences = () => {
 
   horrorGame.nav = $('#navUl');
   horrorGame.navHolder = $('#mainNav');
+
+  horrorGame.bone = $('#bone');
+
+  horrorGame.buttonTop = $('#buttonTop');
+  horrorGame.lever = $('#lever');
+  horrorGame.doorNineAImg = $('#doorNineA img');
+  horrorGame.doorNineBImg = $('#doorNineB img');
 }
 
 horrorGame.bindEvents = () => {
@@ -31,6 +39,10 @@ horrorGame.bindEvents = () => {
     horrorGame.showDialogue(borisNpc);
     horrorGame.changeFrame(1);
   });
+  horrorGame.bone.children('button').on('click', function() {
+    horrorGame.addToInventory('bone');
+    horrorGame.hideObject(horrorGame.bone);
+  });
   $('#skull button').on('click', function(){
     horrorGame.eyeLevel = 2;
     horrorGame.showDialogue(skullNpc);
@@ -42,27 +54,34 @@ horrorGame.bindEvents = () => {
   $('#leaveConversationButton').on('click', function() {
     horrorGame.changeFrame(horrorGame.previousFrame);
   });
+  $('#doorFour button').on('click', function() {
+    horrorGame.setEndScreen('(you died)', './assets/deathIcon.svg');
+    horrorGame.changeFrame(-1);
+  });
   $('#doorFive button').on('click', function() {
     horrorGame.setEndScreen('(you died)', './assets/deathIcon.svg');
     horrorGame.changeFrame(-1);
   });
-  
+  $('#doorSix button').on('click', function() {
+    horrorGame.setEndScreen('(you escaped)', './assets/heartIcon.svg');
+    horrorGame.changeFrame(-1);
+  });
 
   $('#doorEightButton button').on('click', function() {
-    $('#buttonTop').addClass('buttonAnimation');
-    $('#buttonTop').on('animationend webkitTransitionEnd oTransitionEnd', function(){ 
-      //show button for left door
+    horrorGame.buttonTop.addClass('buttonAnimation');
+    horrorGame.buttonTop.on('animationend webkitTransitionEnd oTransitionEnd', function(){ 
+      //show button for the left door
       horrorGame.showObject('#doorNineB button');
-      $('#doorNineB img').attr('src', './assets/doorOpen.png');
+      horrorGame.doorNineBImg.attr('src', './assets/doorOpen.png');
       horrorGame.changeFrame(8);
     });
   });
   $('#doorSevenButton button').on('click', function() {
-    $('#lever').addClass('leverAnimation');
-    $('#lever').on('animationend webkitTransitionEnd oTransitionEnd', function(){ 
-      //show button for right door
+    horrorGame.lever.addClass('leverAnimation');
+    horrorGame.lever.on('animationend webkitTransitionEnd oTransitionEnd', function(){ 
+      //show button for the right door
       horrorGame.showObject('#doorNineA button');
-      $('#doorNineA img').attr('src', './assets/doorOpen.png');
+      horrorGame.doorNineAImg.attr('src', './assets/doorOpen.png');
       horrorGame.changeFrame(8);     
     });
   });
@@ -71,6 +90,7 @@ horrorGame.bindEvents = () => {
     horrorGame.changeFrame(3);
   });
   $('#doorNineB button').on('click', function() {
+    horrorGame.showObject(horrorGame.bone);
     horrorGame.changeFrame(2);
   });
 
@@ -111,11 +131,23 @@ horrorGame.start = () => {
   //Hide objects (ie bone)
   horrorGame.hideObject($('#doorNineA button'));
   horrorGame.hideObject($('#doorNineB button'));
-
+  horrorGame.hideObject(horrorGame.bone);
   //Hide all appropriate frames
   $(horrorGame.frames)
     .find('.window').addClass('hideFrame')
     .find('.closedEye').removeClass('hideFrame');
+  //Show things
+  $('#placardText').text("Key for sale.");
+  horrorGame.showObject($('key'));
+
+  //Make sure animations are off
+  horrorGame.buttonTop.removeClass('buttonAnimation');
+  horrorGame.lever.removeClass('leverAnimation');
+
+  //reset images
+  horrorGame.doorNineAImg.attr('src', './assets/doorClosed.png');
+  horrorGame.doorNineBImg.attr('src', './assets/doorClosed.png');
+
   //Update the eye to it's closed image
   horrorGame.changeEye(0);
   //Make the frame tracking information back to default
@@ -241,7 +273,14 @@ horrorGame.showObject = (object) => {
   $(object).show();
 }
 
-
+horrorGame.tradeWithSkull = () => {
+  horrorGame.removeFromInventory('bone');
+  horrorGame.addToInventory('doorKey');
+  $('#placardText').text('Key sold.');
+  horrorGame.hideObject($('#key'));
+  skullNpc.currentIndex = 2;
+  horrorGame.showDialogue(skullNpc);
+}
 
 
 $(document).ready(function(){
@@ -289,7 +328,7 @@ borisNpc = {
       responses: [
         {
           text: 'Okay.',
-          callback: function () { horrorGame.changeEye(0); horrorGame.changeFrame(2); }
+          callback: function () { horrorGame.showObject(horrorGame.bone); horrorGame.changeEye(0); horrorGame.changeFrame(2); }
         }
       ]
     },
@@ -350,10 +389,7 @@ skullNpc = {
           callback: function () { 
             if(horrorGame.checkInventory('bone')){
               //you currently have the bone
-              horrorGame.removeFromInventory('bone');
-              horrorGame.addToInventory('doorKey');
-              skullNpc.currentIndex = 2;
-              horrorGame.showDialogue(skullNpc);
+              horrorGame.tradeWithSkull();
             }else {
               //no bone
               skullNpc.currentIndex = 3;
@@ -375,10 +411,7 @@ skullNpc = {
           callback: function () { 
             if(horrorGame.checkInventory('bone')){
               //you currently have the bone
-              horrorGame.removeFromInventory('bone');
-              horrorGame.addToInventory('doorKey');
-              skullNpc.currentIndex = 2;
-              horrorGame.showDialogue(skullNpc);
+              horrorGame.tradeWithSkull();
             }else {
               //no bone
               skullNpc.currentIndex = 3;
@@ -397,7 +430,7 @@ skullNpc = {
       responses: [
         {
           text: 'Sure thing <span class="italic">bone</span>.',
-          callback: function () { horrorGame.changeEye(1); horrorGame.changeFrame(6); }
+          callback: function () { horrorGame.changeEye(1); horrorGame.changeFrame(5); }
         }
       ]
     },
@@ -409,10 +442,7 @@ skullNpc = {
           callback: function () { 
             if(horrorGame.checkInventory('bone')){
               //you currently have the bone
-              horrorGame.removeFromInventory('bone');
-              horrorGame.addToInventory('doorKey');
-              skullNpc.currentIndex = 2;
-              horrorGame.showDialogue(skullNpc);
+              horrorGame.tradeWithSkull();
             }else {
               //no bone
               skullNpc.currentIndex = 3;
