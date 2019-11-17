@@ -8,12 +8,13 @@
   <link rel='stylesheet' href='styles/style.css'>
   <title>mikoSramekProjectThree</title>
 </head>
-<body>  
+
+<body>
   <header>
     <!-- Start of Wrapper -->
     <div class="wrapper">
       <h1>title</h1>
-    
+
       <!-- This button shows the nav in main (in script.js) -->
       <button class="expandingButton menuButton " id="menuButton">
         <span class="visuallyHidden">Menu</span>
@@ -22,7 +23,7 @@
     </div> <!-- End of Wrapper -->
   </header>
   <main>
-    
+
     <!-- Start of Wrapper -->
     <div class="wrapper">
       <!-- Start of Main Nav -->
@@ -41,7 +42,7 @@
       <section class="frameOne">
         <!-- Start of Wrapper -->
         <div class="wrapper">
-  
+
           <!-- Start of Tutorial Div -->
           <div class="tutorial" id="tutorial">
             <h2>How to play</h2>
@@ -55,7 +56,7 @@
             </ul> <!-- End of Instructions List -->
             <!-- Start of Arrow Div -->
             <div class="tutorialArrow">
-              <img src="./assets/arrow.svg" alt="">
+              <img src="./assets/arrow.svg" alt="Look below for the start button.">
             </div> <!-- End of Arrow Div -->
             <!-- Start of Close Tutorial Button Div -->
             <div class="buttonDiv">
@@ -64,355 +65,360 @@
               </button>
             </div> <!-- End of Close Tutorial Button Div -->
           </div> <!-- End of Tutorial Div -->
-  
+
           <!-- Start of Eye Div -->
           <div class="closedEye">
-            <img src="./assets/eye/eye0.png" alt="">
+            <img src="./assets/eye/eye0.png" alt="The eye of Qhinos.">
           </div> <!-- End of Eye Div -->
-  
+
           <!-- Start of Window Div -->
           <div class="window">
-  
+
             <!-- Start of Background Line Div -->
             <div class="backgroundLine background">
-              <img src="./assets/wallLine.png" alt="">
+              <img src="./assets/wallLine.png" alt="This room is quite spacious. In front of you stands a man.">
             </div> <!-- End of Background Line Div -->
-  
-           
-  
+
+
+
             <!-- Start of Character Div -->
             <div href="#" class="characterOne foreground" id="characterOne">
-              <img src="./assets/priest.png" alt="">
-              <button class="expandingButton" >
+              <img src="./assets/priest.png" alt="This man stands in front of you. He gives off an ominous vibe.">
+              <button class="expandingButton">
                 <span>(talk)</span>
               </button>
             </div> <!-- End of Character Div -->
-  
+
             <!-- Start of Mushroom Div -->
-            <div class="shrooms midground">  
+            <div class="shrooms midground">
+              <img src="./assets/shrooms.png"
+                alt="Some strangely large mushrooms growing. They shake as you touch them.">
               <button class="expandingButton" id="shrooms">
                 <span>(touch)</span>
               </button>
-              <img src="./assets/shrooms.png" alt="">
             </div> <!-- End of Mushroom Div -->
 
             <!-- Start of Bone Div -->
-            <div class="bone foreground" id="bone">  
+            <div class="bone foreground" id="bone">
+              <img src="./assets/bone.png" alt="A bone sitting on the floor.">
               <button class="expandingButton">
                 <span>(take)</span>
               </button>
-              <img src="./assets/bone.png" alt="">
             </div> <!-- End of Bone Div -->
-  
+
           </div> <!-- End of Window Div -->
-  
+
         </div> <!-- End of Wrapper -->
       </section> <!-- End of Frame One Section -->
-  
+
       <!-- Start of Frame Two Section -->
       <section class="frameTwo">
-  
+
         <!-- Start of Wrapper -->
         <div class="wrapper">
-  
+
           <!-- Start of Eye Div -->
           <div class="closedEye">
-            <img src="./assets/eye/eye0.png" alt="">
+            <img src="./assets/eye/eye0.png" alt="The eye of Qhinos.">
           </div> <!-- End of Eye Div -->
-  
+
           <!-- Start of Window Div -->
           <div class="window hideFrame">
+            <!-- Start of Portrait Div -->
+            <div class="portrait">
+              <img src="./assets/priestPortrait.png" alt="The man has a long nose and dark sunken eyes."
+                id="npcPortrait">
+            </div> <!-- End of Portrait Div -->
             <!-- Start of Conversation Div -->
             <div class="conversationBox">
               <h2 class="name" id="npcName"></h2>
               <p class="text" id="npcText"></p>
               <!-- Start of Response Button Flex List -->
               <ul class="buttonFlex" id="responseList">
-  
+
                 <!-- Response Buttons are generated in here by script.js! -->
-  
+
               </ul> <!-- End of Response Button Flex List -->
               <!-- Start of Button Div -->
               <div class="leaveButton">
-                <button class="expandingButton"  id="leaveConversationButton">
+                <button class="expandingButton" id="leaveConversationButton">
                   <span>(leave)</span>
                 </button>
               </div> <!-- End of Button Div -->
             </div> <!-- End of Conversation Box Div -->
-            <!-- Start of Portrait Div -->
-            <div class="portrait">
-              <img src="./assets/priestPortrait.png" alt="" id="npcPortrait">
-            </div> <!-- End of Portrait Div -->
+
           </div> <!-- End of Window Div -->
-  
+
         </div> <!-- End of Wrapper -->
       </section> <!-- End of Frame Two Section -->
-  
+
       <!-- Start of Frame Three Section -->
       <section class="frameThree">
-        
+
         <!-- Start of Wrapper -->
-          <div class="wrapper">
-  
-            <!-- Start of Eye Div -->
-              <div class="closedEye">
-                <img src="./assets/eye/eye0.png" alt="">
-              </div> <!-- End of Eye Div -->
-  
-              <!-- Start of Window Div -->
-              <div class="window hideFrame"> 
-  
-                <!-- Start of Background Line Div -->
-                <div class="backgroundLine background">
-                  <img src="./assets/wallLine.png" alt="">
-                </div> <!-- End of Background Line Div -->
-  
-                <!-- Start of Placard Div -->
-                <div class="placard foreground">
-                  <img src="./assets/placard.png" alt="">
-                  <p id="placardText">Key for sale.</p>
-                </div> <!-- End of Placard Div -->
-                <!-- Start of Key Div -->
-                <div class="key midground" id="key">
-                  <img src="./assets/key.png" alt="">
-                </div> <!-- End of Key Div -->
-                <!-- Start of Skull Div -->
-                <div class="skull foreground" id="skull">
-                  <button class="expandingButton">
-                    <span>(talk)</span>
-                  </button>
-                  <img src="./assets/skull.png" alt="">
-                </div> <!-- End of Skull Div -->
-                
-              </div> <!-- End of Window Div -->
-  
-            </div> <!-- End of Wrapper -->
+        <div class="wrapper">
+
+          <!-- Start of Eye Div -->
+          <div class="closedEye">
+            <img src="./assets/eye/eye0.png" alt="The eye of Qhinos.">
+          </div> <!-- End of Eye Div -->
+
+          <!-- Start of Window Div -->
+          <div class="window hideFrame">
+
+            <!-- Start of Background Line Div -->
+            <div class="backgroundLine background">
+              <img src="./assets/wallLine.png" alt="A small alcove that contains a strange setup.">
+            </div> <!-- End of Background Line Div -->
+
+            <!-- Start of Placard Div -->
+            <div class="placard foreground">
+              <img src="./assets/placard.png" alt="A small little sign, indicating a shop.">
+              <p id="placardText">Key for sale.</p>
+            </div> <!-- End of Placard Div -->
+            <!-- Start of Key Div -->
+            <div class="key midground" id="key">
+              <img src="./assets/key.png" alt="A big glittering key.">
+            </div> <!-- End of Key Div -->
+            <!-- Start of Skull Div -->
+            <div class="skull foreground" id="skull">
+              <img src="./assets/skull.png" alt="A skull that seems sentient.">
+              <button class="expandingButton">
+                <span>(talk)</span>
+              </button>
+            </div> <!-- End of Skull Div -->
+
+          </div> <!-- End of Window Div -->
+
+        </div> <!-- End of Wrapper -->
       </section> <!-- End of Frame Three Section -->
-  
+
       <!-- Start of Frame Four Section -->
       <section class="frameFour">
-        
-          <!-- Start of Wrapper -->
-            <div class="wrapper">
-    
-              <!-- Start of Eye Div -->
-                <div class="closedEye">
-                  <img src="./assets/eye/eye0.png" alt="">
-                </div> <!-- End of Eye Div -->
-    
-                <!-- Start of Window Div -->
-                <div class="window hideFrame"> 
 
-                  <!-- Start of Background Line Div -->
-                  <div class="backgroundLine background">
-                    <img src="./assets/wallLine.png" alt="">
-                  </div> <!-- End of Background Line Div -->
+        <!-- Start of Wrapper -->
+        <div class="wrapper">
 
-                  <!-- Start of Door Div -->
-                  <div class="door foreground" id="doorFour">
-                    <button class="expandingButton">
-                      <span>(go)</span>
-                    </button>
-                    <img src="./assets/doorOpen.png" alt="">
-                  </div> <!-- End of Door Div -->
+          <!-- Start of Eye Div -->
+          <div class="closedEye">
+            <img src="./assets/eye/eye0.png" alt="The eye of Qhinos.">
+          </div> <!-- End of Eye Div -->
 
-                </div> <!-- End of Window Div -->
-    
-              </div> <!-- End of Wrapper -->
-        </section> <!-- End of Frame Four Section -->
+          <!-- Start of Window Div -->
+          <div class="window hideFrame">
+
+            <!-- Start of Background Line Div -->
+            <div class="backgroundLine background">
+              <img src="./assets/wallLine.png" alt="Much like the previous room, but all there is, is a door.">
+            </div> <!-- End of Background Line Div -->
+
+            <!-- Start of Door Div -->
+            <div class="door foreground" id="doorFour">
+              <button class="expandingButton">
+                <span>(go)</span>
+              </button>
+              <img src="./assets/doorOpen.png" alt="An open door leading into darkness.">
+            </div> <!-- End of Door Div -->
+
+          </div> <!-- End of Window Div -->
+
+        </div> <!-- End of Wrapper -->
+      </section> <!-- End of Frame Four Section -->
 
       <!-- Start of Frame Five Section -->
       <section class="frameFive">
-        
-        <!-- Start of Wrapper -->
-          <div class="wrapper">
-  
-            <!-- Start of Eye Div -->
-              <div class="closedEye">
-                <img src="./assets/eye/eye0.png" alt="">
-              </div> <!-- End of Eye Div -->
-  
-              <!-- Start of Window Div -->
-              <div class="window hideFrame"> 
-                <!-- Start of Background Line Div -->
-                <div class="backgroundLine background">
-                  <img src="./assets/wallLine.png" alt="">
-                </div> <!-- End of Background Line Div -->
-                 <!-- Start of Door Div -->
-                <div class="door foreground" id="doorFive">
-                  <button class="expandingButton">
-                    <span>(go)</span>
-                  </button>
-                  <img src="./assets/doorOpen.png" alt="">
-                </div> <!-- End of Door Div -->
 
-              </div> <!-- End of Window Div -->
-  
-            </div> <!-- End of Wrapper -->
-      </section> <!-- End of Frame Five Section -->
-  
-      <!-- Start of Frame Six Section -->
-      <section class="frameSix">
-        
-        <!-- Start of Wrapper -->
-          <div class="wrapper">
-  
-            <!-- Start of Eye Div -->
-              <div class="closedEye">
-                <img src="./assets/eye/eye0.png" alt="">
-              </div> <!-- End of Eye Div -->
-  
-              <!-- Start of Window Div -->
-              <div class="window hideFrame"> 
-
-                <!-- Start of Background Line Div -->
-                <div class="backgroundLine background">
-                  <img src="./assets/wallLine.png" alt="">
-                </div> <!-- End of Background Line Div -->
-
-                <!-- Start of Door Div -->
-                <div class="door foreground" id="doorSix">
-                  <button class="expandingButton">
-                    <span>(unlock)</span>
-                  </button>
-                  <img src="./assets/door.png" alt="">
-                </div> <!-- End of Door Div -->
-
-              </div> <!-- End of Window Div -->
-              
-            </div> <!-- End of Wrapper -->
-      </section> <!-- End of Frame Six Section -->
-      
-      <!-- Start of Frame Seven Section -->
-      <section class="frameSeven">
-        
-        <!-- Start of Wrapper -->
-          <div class="wrapper">
-  
-            <!-- Start of Eye Div -->
-              <div class="closedEye">
-                <img src="./assets/eye/eye0.png" alt="">
-              </div> <!-- End of Eye Div -->
-  
-              <!-- Start of Window Div -->
-              <div class="window hideFrame"> 
-                
-                <!-- Start of Background Line Div -->
-                <div class="backgroundLine background">
-                  <img src="./assets/wallLine.png" alt="">
-                </div> <!-- End of Background Line Div -->
-                
-                <!-- Start of Panel Div -->
-                <div class="panel midground">
-                  <img src="./assets/panel.png" alt="">
-                </div> <!-- End of Panel Div -->
-  
-                <!-- Start of Interactable Div -->
-                <div class="panelInteractable midground" id="doorSevenButton">
-                  <button class="expandingButton">
-                    <span>(pull)</span>
-                  </button>
-                  <img src="./assets/lever.png" alt="" id="lever">
-                </div> <!-- End of Interactable Div -->
-  
-              </div> <!-- End of Window Div -->
-  
-            </div> <!-- End of Wrapper -->
-      </section> <!-- End of Frame Seven Section -->
-      
-      <!-- Start of Frame Eight Section -->
-      <section class="frameEight">
-        
-        <!-- Start of Wrapper -->
-          <div class="wrapper">
-  
-            <!-- Start of Eye Div -->
-              <div class="closedEye">
-                <img src="./assets/eye/eye0.png" alt="">
-              </div> <!-- End of Eye Div -->
-  
-              <!-- Start of Window Div -->
-              <div class="window hideFrame"> 
-  
-                <!-- Start of Background Line Div -->
-                <div class="backgroundLine background">
-                  <img src="./assets/wallLine.png" alt="">
-                </div> <!-- End of Background Line Div -->
-  
-                <!-- Start of Panel Div -->
-                <div class="panel midground">
-                  <img src="./assets/panel.png" alt="">
-                </div> <!-- End of Panel Div -->
-  
-                <!-- Start of Interactable Div -->
-                <div class="panelInteractable midground" id="doorEightButton">
-                  <img src="./assets/buttonBase.png" alt="" class="buttonBase">
-                  <button class="expandingButton">
-                    <span>(press)</span>
-                  </button>
-                  <img src="./assets/buttonTop.png" alt="" class="buttonTop" id="buttonTop">
-                </div> <!-- End of Interactable Div -->
-  
-              </div> <!-- End of Window Div -->
-  
-            </div> <!-- End of Wrapper -->
-      </section> <!-- End of Frame Eight Section -->
-      
-      <!-- Start of Frame Nine Section -->
-      <section class="frameNine">
-        
-        <!-- Start of Wrapper -->
-          <div class="wrapper">
-  
-            <!-- Start of Eye Div -->
-              <div class="closedEye">
-                <img src="./assets/eye/eye0.png" alt="">
-              </div> <!-- End of Eye Div -->
-  
-              <!-- Start of Window Div -->
-              <div class="window hideFrame"> 
-                <!-- Start of Background Line Div -->
-                <div class="backgroundLine background">
-                  <img src="./assets/wallLine.png" alt="">
-                </div> <!-- End of Background Line Div -->
-
-                <!-- Start of Door Div -->
-                <div class="door leftDoor foreground" id="doorNineB">
-                  <button class="expandingButton">
-                    <span>(go)</span>
-                  </button>
-                  <img src="./assets/doorClosed.png" alt="">
-                </div> <!-- End of Door Div -->
-
-                <!-- Start of Door Div -->
-                <div class="door rightDoor foreground" id="doorNineA">
-                  <button class="expandingButton">
-                    <span>(go)</span>
-                  </button>
-                  <img src="./assets/doorClosed.png" alt="">
-                </div> <!-- End of Door Div -->
-
-              </div> <!-- End of Window Div -->
-  
-            </div> <!-- End of Wrapper -->
-      </section> <!-- End of Frame Nine Section -->
-      
-      <!-- Start of End Frame Section -->
-      <section class="endFrame">
-  
         <!-- Start of Wrapper -->
         <div class="wrapper">
-  
+
           <!-- Start of Eye Div -->
           <div class="closedEye">
-            <img src="./assets/eye/eye0.png" alt="">
+            <img src="./assets/eye/eye0.png" alt="The eye of Qhinos.">
           </div> <!-- End of Eye Div -->
-  
+
           <!-- Start of Window Div -->
-          <div class="window hideFrame"> 
+          <div class="window hideFrame">
+            <!-- Start of Background Line Div -->
+            <div class="backgroundLine background">
+              <img src="./assets/wallLine.png" alt="Eerily similar to every other room, but with only a door.">
+            </div> <!-- End of Background Line Div -->
+            <!-- Start of Door Div -->
+            <div class="door foreground" id="doorFive">
+              <button class="expandingButton">
+                <span>(go)</span>
+              </button>
+              <img src="./assets/doorOpen.png" alt="A door slightly ajar. You can see nothing beyond the opening.">
+            </div> <!-- End of Door Div -->
+
+          </div> <!-- End of Window Div -->
+
+        </div> <!-- End of Wrapper -->
+      </section> <!-- End of Frame Five Section -->
+
+      <!-- Start of Frame Six Section -->
+      <section class="frameSix">
+
+        <!-- Start of Wrapper -->
+        <div class="wrapper">
+
+          <!-- Start of Eye Div -->
+          <div class="closedEye">
+            <img src="./assets/eye/eye0.png" alt="The eye of Qhinos.">
+          </div> <!-- End of Eye Div -->
+
+          <!-- Start of Window Div -->
+          <div class="window hideFrame">
+
+            <!-- Start of Background Line Div -->
+            <div class="backgroundLine background">
+              <img src="./assets/wallLine.png" alt="This is the room you were told about.">
+            </div> <!-- End of Background Line Div -->
+
+            <!-- Start of Door Div -->
+            <div class="door foreground" id="doorSix">
+              <img src="./assets/door.png" alt="The only thing on this side of the wall: a locked door.">
+              <button class="expandingButton">
+                <span>(unlock)</span>
+              </button>
+            </div> <!-- End of Door Div -->
+
+          </div> <!-- End of Window Div -->
+
+        </div> <!-- End of Wrapper -->
+      </section> <!-- End of Frame Six Section -->
+
+      <!-- Start of Frame Seven Section -->
+      <section class="frameSeven">
+
+        <!-- Start of Wrapper -->
+        <div class="wrapper">
+
+          <!-- Start of Eye Div -->
+          <div class="closedEye">
+            <img src="./assets/eye/eye0.png" alt="The eye of Qhinos.">
+          </div> <!-- End of Eye Div -->
+
+          <!-- Start of Window Div -->
+          <div class="window hideFrame">
+
+            <!-- Start of Background Line Div -->
+            <div class="backgroundLine background">
+              <img src="./assets/wallLine.png" alt="The lever you were pointed towards is on the wall ahead of you.">
+            </div> <!-- End of Background Line Div -->
+
+            <!-- Start of Panel Div -->
+            <div class="panel midground">
+              <img src="./assets/panel.png" alt="A metal panel that's screwed into the wall.">
+            </div> <!-- End of Panel Div -->
+
+            <!-- Start of Interactable Div -->
+            <div class="panelInteractable midground" id="doorSevenButton">
+              <img src="./assets/lever.png" alt="A wooden lever that has a leather handle." id="lever">
+              <button class="expandingButton">
+                <span>(pull)</span>
+              </button>
+            </div> <!-- End of Interactable Div -->
+
+          </div> <!-- End of Window Div -->
+
+        </div> <!-- End of Wrapper -->
+      </section> <!-- End of Frame Seven Section -->
+
+      <!-- Start of Frame Eight Section -->
+      <section class="frameEight">
+
+        <!-- Start of Wrapper -->
+        <div class="wrapper">
+
+          <!-- Start of Eye Div -->
+          <div class="closedEye">
+            <img src="./assets/eye/eye0.png" alt="The eye of Qhinos.">
+          </div> <!-- End of Eye Div -->
+
+          <!-- Start of Window Div -->
+          <div class="window hideFrame">
+
+            <!-- Start of Background Line Div -->
+            <div class="backgroundLine background">
+              <img src="./assets/wallLine.png" alt="The button you were directed towards is on the wall ahead of you.">
+            </div> <!-- End of Background Line Div -->
+
+            <!-- Start of Panel Div -->
+            <div class="panel midground">
+              <img src="./assets/panel.png" alt="An old rusty panel that has been clearly neglected.">
+            </div> <!-- End of Panel Div -->
+
+            <!-- Start of Interactable Div -->
+            <div class="panelInteractable midground" id="doorEightButton">
+              <img src="./assets/buttonBase.png" alt="A big button that is covered in dust." class="buttonBase">
+              <img src="./assets/buttonTop.png" alt="The top of the button. It has a faint hand print on it." class="buttonTop" id="buttonTop">
+              <button class="expandingButton">
+                <span>(press)</span>
+              </button>
+              
+            </div> <!-- End of Interactable Div -->
+
+          </div> <!-- End of Window Div -->
+
+        </div> <!-- End of Wrapper -->
+      </section> <!-- End of Frame Eight Section -->
+
+      <!-- Start of Frame Nine Section -->
+      <section class="frameNine">
+
+        <!-- Start of Wrapper -->
+        <div class="wrapper">
+
+          <!-- Start of Eye Div -->
+          <div class="closedEye">
+            <img src="./assets/eye/eye0.png" alt="The eye of Qhinos.">
+          </div> <!-- End of Eye Div -->
+
+          <!-- Start of Window Div -->
+          <div class="window hideFrame">
+            <!-- Start of Background Line Div -->
+            <div class="backgroundLine background">
+              <img src="./assets/wallLine.png" alt="This room has two doors, one is opened one is closed.">
+            </div> <!-- End of Background Line Div -->
+
+            <!-- Start of Door Div -->
+            <div class="door leftDoor foreground" id="doorNineB">
+              <button class="expandingButton">
+                <span>(go)</span>
+              </button>
+              <img src="./assets/doorClosed.png"
+                alt="The door is sealed shut. It looks to be opened by some mechanism.">
+            </div> <!-- End of Door Div -->
+
+            <!-- Start of Door Div -->
+            <div class="door rightDoor foreground" id="doorNineA">
+              <button class="expandingButton">
+                <span>(go)</span>
+              </button>
+              <img src="./assets/doorClosed.png"
+                alt="The door is sealed shut. It looks to be opened by some mechanism.">
+            </div> <!-- End of Door Div -->
+
+          </div> <!-- End of Window Div -->
+
+        </div> <!-- End of Wrapper -->
+      </section> <!-- End of Frame Nine Section -->
+
+      <!-- Start of End Frame Section -->
+      <section class="endFrame">
+
+        <!-- Start of Wrapper -->
+        <div class="wrapper">
+
+          <!-- Start of Eye Div -->
+          <div class="closedEye">
+            <img src="./assets/eye/eye0.png" alt="The eye of Qhinos.">
+          </div> <!-- End of Eye Div -->
+
+          <!-- Start of Window Div -->
+          <div class="window hideFrame">
             <!-- Start of Ending Icon Div -->
             <div class="endingIcon" id="endingDiv">
-              <img src="" alt="">
               <h3></h3>
             </div> <!-- End of Ening Icon Div -->
 
@@ -427,7 +433,7 @@
               </button>
             </div> <!-- End of Button Div -->
           </div> <!-- End of Window Div -->
-  
+
         </div> <!-- End of Wrapper -->
       </section> <!-- End of Frame Three Section -->
     </div> <!-- End of Frame Holder Div -->
@@ -447,4 +453,5 @@
   <!-- Load fontawesome kit last -->
   <script src='https://kit.fontawesome.com/97241a1aa1.js' crossorigin='anonymous'></script>
 </body>
+
 </html>

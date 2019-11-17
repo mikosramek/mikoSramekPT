@@ -75,6 +75,7 @@ horrorGame.bindEvents = () => {
       //show button for the left door
       horrorGame.showObject('#doorNineB button');
       horrorGame.doorNineBImg.attr('src', './assets/doorOpen.png');
+      horrorGame.doorNineBImg.attr('alt','The door is open and a warm draft flows into the room.');
       horrorGame.changeFrame(8);
     });
   });
@@ -84,6 +85,7 @@ horrorGame.bindEvents = () => {
       //show button for the right door
       horrorGame.showObject('#doorNineA button');
       horrorGame.doorNineAImg.attr('src', './assets/doorOpen.png');
+      horrorGame.doorNineAImg.attr('alt','The door is open and a cold draft flows into the room.');
       horrorGame.changeFrame(8);     
     });
   });
@@ -201,7 +203,7 @@ horrorGame.badEnd = () => {
   
   horrorGame.eyeParent.empty();
   for(let i = 0; i < eyeCount; i++){
-    const eye = $(`<img class="endingEye" src="./assets/eye/eye0.png" alt="">`);
+    const eye = $(`<img class="endingEye" src="./assets/eye/eye0.png" alt="The eyes of Qhinos have awoken.">`);
     const newEye = eye.appendTo(horrorGame.eyeParent);
     
     const x = Math.floor(Math.random() * width);
