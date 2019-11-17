@@ -27,6 +27,8 @@ horrorGame.findDomReferences = () => {
   horrorGame.lever = $('#lever');
   horrorGame.doorNineAImg = $('#doorNineA img');
   horrorGame.doorNineBImg = $('#doorNineB img');
+
+  horrorGame.eyeParent = $('#eyes');
 }
 
 horrorGame.bindEvents = () => {
@@ -55,15 +57,15 @@ horrorGame.bindEvents = () => {
     horrorGame.changeFrame(horrorGame.previousFrame);
   });
   $('#doorFour button').on('click', function() {
-    horrorGame.setEndScreen('(you died)', './assets/deathIcon.svg');
+    horrorGame.setEndScreen('(you died)', horrorGame.badEnd);
     horrorGame.changeFrame(-1);
   });
   $('#doorFive button').on('click', function() {
-    horrorGame.setEndScreen('(you died)', './assets/deathIcon.svg');
+    horrorGame.setEndScreen('(you died)', horrorGame.badEnd);
     horrorGame.changeFrame(-1);
   });
   $('#doorSix button').on('click', function() {
-    horrorGame.setEndScreen('(you escaped)', './assets/heartIcon.svg');
+    horrorGame.setEndScreen('(you escaped)', undefined);
     horrorGame.changeFrame(-1);
   });
 
@@ -132,6 +134,7 @@ horrorGame.start = () => {
   horrorGame.hideObject($('#doorNineA button'));
   horrorGame.hideObject($('#doorNineB button'));
   horrorGame.hideObject(horrorGame.bone);
+  horrorGame.eyeParent.empty();
   //Hide all appropriate frames
   $(horrorGame.frames)
     .find('.window').addClass('hideFrame')
@@ -181,11 +184,46 @@ horrorGame.toggleMenu = () => {
   $('#menuButton i').toggleClass('fa-bars fa-times');
 }
 
-horrorGame.setEndScreen = (text, imgUrl) => {
+horrorGame.setEndScreen = (text, callback) => {
   horrorGame.endingDiv
-    .find('h3').text(text);
-  horrorGame.endingDiv
-    .find('img').attr('src', imgUrl);
+    .find('h3').text(text).fadeOut(500, function(){
+      $(this).fadeIn(3500);
+      if(callback !== undefined){
+        callback();
+      }
+    });
+  
+}
+horrorGame.badEnd = () => {
+  const eyeCount = Math.floor(Math.random() * 10) + 10;
+  const width = $(window).width() * 0.8;
+  const height = $(window).height() * 0.8;
+  
+  horrorGame.eyeParent.empty();
+  for(let i = 0; i < eyeCount; i++){
+    const eye = $(`<img class="endingEye" src="./assets/eye/eye0.png" alt="">`);
+    const newEye = eye.appendTo(horrorGame.eyeParent);
+    
+    const x = Math.floor(Math.random() * width);
+    
+    const y = Math.floor(Math.random() * height);
+
+    newEye.css({left: `${x}px`, top: `${y}px`});
+
+
+    setTimeout(function() {
+      horrorGame.animateEye(newEye, 1, 300);
+    }, (Math.floor(Math.random() * 2000) + 1500));
+  }
+}
+
+horrorGame.animateEye = (eye, index) => {
+  eye.attr('src', `./assets/eye/eye${index}.png`)
+  if(index < 4){
+    setTimeout(function(){
+      horrorGame.animateEye(eye, ++index);
+    }, 100);
+  }
 }
 
 horrorGame.showDialogue = (conversationObject) => {
@@ -261,7 +299,6 @@ horrorGame.changeFrame = (n) => {
   
   $(horrorGame.nav.children()[n]).find('button').removeAttr('disabled');
   //Scroll the html/body to the top of the next frame
-  // $('HTML, body').animate({scrollTop: $(horrorGame.frames[n]).offset().top - 30}, 1000);
   $('#frameHolder').css({transform: `translateY(calc(${n*-90}vh))`});
   //Update the current frame
   horrorGame.currentFrame = n;
@@ -298,7 +335,7 @@ borisNpc = {
   reset: function() { borisNpc.currentIndex = 0; },
   dialogue: [
     { // 0
-      text: 'Welcome to the house of <span class="wiggly">Qhinos, God of Tricks.</span> Are you willing to help us in our endeavour?',
+      text: 'Welcome to the house of <span class="wiggly">Qhinos, God of Eyes.</span> Are you willing to help us in our endeavour?',
       responses: [
         {
           text: 'Well, it seems that I have no choice. What do you need to get done?',
@@ -374,7 +411,6 @@ borisNpc = {
     }
   ]
 }
-//horrorGame.changeFrame(-1); horrorGame.setEndScreen('(you died)', './assets/deathIcon.svg');
 skullNpc = {
   name: 'Skull',
   portraitURL: './assets/skullPortrait.png',
