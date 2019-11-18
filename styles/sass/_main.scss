@@ -616,14 +616,16 @@ nav {
   // height: 100%;
   grid-row: 2 / span 1;
   grid-column: 2 / span 3;
+  @include media($thirdBreak){
+    grid-column: 1 / -1;
+  }
   h3 {
     background-color: $primaryWhite;
     color: $inputAccent;
     font-size: 3rem;
     z-index: 10;
     padding: 25px;
-  }
-  
+  } 
 }
 .endingEye {
   position: absolute;

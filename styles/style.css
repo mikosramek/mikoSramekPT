@@ -1379,6 +1379,12 @@ nav button:disabled:hover span, nav button:disabled:focus span {
   grid-column: 2 / span 3;
 }
 
+@media only screen and (max-width: 400px) {
+  .endingIcon {
+    grid-column: 1 / -1;
+  }
+}
+
 .endingIcon h3 {
   background-color: #fefefe;
   color: #EF414C;
